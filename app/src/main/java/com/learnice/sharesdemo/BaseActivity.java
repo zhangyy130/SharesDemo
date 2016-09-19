@@ -17,6 +17,12 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(R.anim.anim_in_left_right,R.anim.anim_out_left_right);
+        if (this instanceof MainActivity){
+
+        }
+        else {
+            overridePendingTransition(R.anim.anim_in_left_right,R.anim.anim_out_left_right);
+        }
+
     }
 }
