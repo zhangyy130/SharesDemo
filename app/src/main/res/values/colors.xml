@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#0288D1</color>
+    <color name="colorAccent">#448AFF</color>
+    <color name="window_background">#FFF5F5F5</color>
+    <color name="fragment_bg">#9E9E9E</color>
+    <color name="item_color">#FAFAFA</color>
+    <color name="hint">#212121</color>
+    <color name="hint2">#727272</color>
+    <color name="up">#D50000</color>
+    <color name="down">#2E7D32</color>
+</resources>

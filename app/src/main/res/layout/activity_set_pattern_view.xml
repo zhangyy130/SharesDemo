@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.learnice.sharesdemo.SetPatternView">
+<android.support.v7.widget.Toolbar
+    android:id="@+id/set_pattern_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    >
+</android.support.v7.widget.Toolbar>
+    <TextView
+        android:layout_below="@id/set_pattern_toolbar"
+        android:id="@+id/pattern_top_text"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绘制解锁图案"
+        android:textSize="24sp"/>
+    <me.zhanghai.android.patternlock.PatternView
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/set_pattern_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/set_pattern_cancel"
+            android:text="取消"
+            android:textColor="@android:color/black"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp" />
+        <Button
+            android:text="确定"
+            android:textColor="@android:color/black"
+            android:id="@+id/set_pattern_cancel_right"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp" />
+    </LinearLayout>
+</RelativeLayout>

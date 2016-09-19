@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.learnice.sharesdemo.ConfirmPatternView">
+    <TextView
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绘制解锁图案"
+        android:textSize="20sp"
+        />
+    <me.zhanghai.android.patternlock.PatternView
+        android:id="@+id/confirm_pattern_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        />
+<Button
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:id="@+id/cancel_confirm"
+    android:text="取消"
+    android:textColor="@android:color/black"/>
+
+</RelativeLayout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8EAF6"
+    tools:context="com.learnice.sharesdemo.ChangePassActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/change_pass_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        ></android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/change_pass_usernamelayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="150dp"
+        android:background="@color/window_background">
+
+        <ImageView
+            android:id="@+id/change_pass_tv_account"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/img_password"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/change_pass_et_current_pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:password="true"
+            android:layout_toRightOf="@id/change_pass_tv_account"
+            android:background="@null"
+            android:hint="当前密码"
+            android:maxLines="1"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/change_pass_passwordlayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/change_pass_usernamelayout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/window_background">
+
+        <ImageView
+            android:id="@+id/change_pass_tv_secret"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="8dp"
+            android:gravity="center_vertical"
+            android:src="@mipmap/img_password"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/change_pass_et_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/change_pass_tv_secret"
+            android:background="@null"
+            android:hint="新密码"
+            android:password="true"
+            android:maxLines="1"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/change_pass_passwordlayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/change_pass_passwordlayout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/window_background">
+
+        <ImageView
+            android:id="@+id/change_pass_tv_secret2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="8dp"
+            android:gravity="center_vertical"
+            android:src="@mipmap/img_password"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/change_pass_et_password2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/change_pass_tv_secret2"
+            android:background="@null"
+            android:hint="再次输入新密码"
+            android:password="true"
+            android:maxLines="1"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/main_btn_change_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/change_pass_passwordlayout2"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:background="#42A5F5"
+        android:text="确定"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/change_pass_progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#99000000"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/change_pass_progress"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:clickable="false"
+            />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/change_pass_progress"
+            android:layout_centerHorizontal="true"
+            android:text="正在验证..."
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</RelativeLayout>
