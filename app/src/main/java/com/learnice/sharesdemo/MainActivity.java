@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -21,10 +20,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,6 +39,7 @@ import com.learnice.sharesdemo.Http.MyURL;
 import com.learnice.sharesdemo.SharedData.AboutLogin;
 import com.learnice.sharesdemo.SharedData.AboutPatternLock;
 import com.learnice.sharesdemo.SharedData.AboutUser;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,7 +79,6 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
     boolean isLoadTablayotu = true;
     @BindView(R.id.details_fab_bg)
     RelativeLayout detailsFabBg;
-
     //ListView listView;
     //List<String> tipData;
     //ArrayAdapter<String> arrayAdapter;
@@ -284,6 +281,12 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(true);
         searchView.setQueryHint("请输入股票代号");
+        //---------------
+//        getMenuInflater().inflate(R.menu.main_menu,menu);
+//        MenuItem item = menu.findItem(R.id.action_search);
+//        item.setVisible(true);
+//        viewSearch.setMenuItem(item);
+        //mSearchMenuItem = item;
         return true;
     }
 

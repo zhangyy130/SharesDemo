@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "23.0.3"
 
     defaultConfig {
@@ -32,4 +32,5 @@ dependencies {
     compile 'com.getbase:floatingactionbutton:1.10.1'
     compile 'me.relex:circleindicator:1.2.1'
     compile 'me.zhanghai.android.patternlock:library:2.0.3'
+    compile 'com.miguelcatalan:materialsearchview:1.4.0'
 }

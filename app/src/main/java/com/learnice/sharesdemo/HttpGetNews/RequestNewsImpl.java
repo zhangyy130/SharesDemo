@@ -12,7 +12,7 @@ import org.xutils.x;
 public class RequestNewsImpl implements IRequestNews {
     @Override
     public void getNews(Callback.CommonCallback<String> commonCallback) {
-        RequestParams params=new RequestParams(MyURL.URL_NEWS);
+        RequestParams params=new RequestParams(MyURL.NEWSURL);
         x.http().get(params,commonCallback);
     }
 }

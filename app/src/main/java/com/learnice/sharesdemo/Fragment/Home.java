@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,10 +75,14 @@ public class Home extends Fragment implements INewsData{
 
     @Override
     public void NewsString(String result) {
+        parseNews(result);
+    }
+    public void parseNews(String data){
         try {
-            JSONObject object=new JSONObject(result);
-            if (object.getString("status").equals("000000")){
-               list.addAll(ParseNews.pareNews(result));
+            JSONObject object=new JSONObject(data);
+            if (object.getString("reason").equals("成功的返回")){
+                JSONObject result=object.getJSONObject("result");
+                list.addAll(ParseNews.pareNews(result));
                 adapter.notifyDataSetChanged();
                 adapter.setRecyclerViewListener(new RecyclerViewListener() {
                     @Override
@@ -95,6 +100,5 @@ public class Home extends Fragment implements INewsData{
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -4,6 +4,7 @@ package com.learnice.sharesdemo.Http;
  * Created by Xuebin He on 2016/6/17.
  */
 public class MyURL {
+    public static final String NEWSURL="http://v.juhe.cn/toutiao/index?type=caijing&key=12f98ddf96cac91d8074a00ba712acf7";
     public static final String MYKEY="?key=bcafd8d700363a408b74269134b4e744";
     public static final String URL_SH_ALL="http://web.juhe.cn:8080/finance/stock/shall"+MYKEY+"&page=";
     public static final String URL_SZ_ALL="http://web.juhe.cn:8080/finance/stock/szall"+MYKEY+"&page=";
@@ -26,5 +27,4 @@ public class MyURL {
 
     public static final String MY_SERVWE="http://learnicehe.cn/Shares/UserCheck";
     public static final String MY_SERVWE_ME="http://learnicehe.cn";
-    public static final String URL_NEWS="http://api.1-blog.com/biz/bizserver/news/list.do";
 }

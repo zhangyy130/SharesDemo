@@ -9,15 +9,14 @@
         android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:theme="@style/costumActionBar"></android.support.v7.widget.Toolbar>
-
+            app:theme="@style/costumActionBar">
+        </android.support.v7.widget.Toolbar>
         <android.support.design.widget.TabLayout
             app:tabIndicatorColor="#eeeeee"
             android:id="@+id/tablayout"
