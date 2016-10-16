@@ -110,7 +110,7 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
             public void run() {
                 setupTablelayout();
             }
-        }, 1000);
+        }, 500);
     }
 
     //为网络提醒设置一个全局的alertdialog

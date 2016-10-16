@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.learnice.sharesdemo.AboutMeActivity;
 import com.learnice.sharesdemo.Adapter.HomeRecyclerViewAdapter;
@@ -39,6 +40,7 @@ public class Home extends Fragment implements INewsData{
     RecyclerView recyclerView;
     HomeRecyclerViewAdapter adapter;
     View rootView;
+    ProgressBar progressBar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +52,7 @@ public class Home extends Fragment implements INewsData{
         if (null==rootView){
             rootView = inflater.inflate(R.layout.fragment_home, container, false);
             recyclerView= (RecyclerView) rootView.findViewById(R.id.home_news_recycler);
-
+            progressBar= (ProgressBar) rootView.findViewById(R.id.home_frg_progressBar);
             new RequestNewsImpl().getNews(new ResponseNews(this));
             list=new ArrayList<News>();
             LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
@@ -81,6 +83,7 @@ public class Home extends Fragment implements INewsData{
         try {
             JSONObject object=new JSONObject(data);
             if (object.getString("reason").equals("成功的返回")){
+                progressBar.setVisibility(View.GONE);
                 JSONObject result=object.getJSONObject("result");
                 list.addAll(ParseNews.pareNews(result));
                 adapter.notifyDataSetChanged();
