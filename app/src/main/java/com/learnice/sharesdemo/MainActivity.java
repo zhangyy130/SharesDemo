@@ -45,8 +45,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements Trend.Refresh {
-
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tablayout)
@@ -72,7 +70,7 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
     FloatingActionButton hk;
     @BindView(R.id.us)
     FloatingActionButton us;
-    //PopupWindow popupWindow;
+
     SearchView searchView;
     netReceiver netReceiver;
     AlertDialog alertDialog;
