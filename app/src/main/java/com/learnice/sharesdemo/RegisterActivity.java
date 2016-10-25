@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.learnice.sharesdemo.MyServerHttp.IMyServerDataResult;
 import com.learnice.sharesdemo.MyServerHttp.MyServerHttpRequestImpl;
 import com.learnice.sharesdemo.MyServerHttp.MyServerHttpResponseStatus;
+import com.learnice.sharesdemo.Other.MD5Secret;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity implements IMyServerData
             Toast.makeText(this,"输入的两次密码不一致请重新输入",Toast.LENGTH_SHORT).show();
         }
         else{
-            new MyServerHttpRequestImpl().checkUser("101",name,pass1,new MyServerHttpResponseStatus(this));
+            new MyServerHttpRequestImpl().checkUser("101",name, MD5Secret.getMD5String(pass2),new MyServerHttpResponseStatus(this));
         }
     }
 

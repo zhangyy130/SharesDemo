@@ -24,6 +24,7 @@ import com.learnice.sharesdemo.MyServerHttp.IMyServerDataResult;
 import com.learnice.sharesdemo.MyServerHttp.MyParams;
 import com.learnice.sharesdemo.MyServerHttp.MyServerHttpRequestImpl;
 import com.learnice.sharesdemo.MyServerHttp.MyServerHttpResponseStatus;
+import com.learnice.sharesdemo.Other.MD5Secret;
 import com.learnice.sharesdemo.Services.SyncLocalDBServices;
 import com.learnice.sharesdemo.SharedData.AboutLogin;
 import com.learnice.sharesdemo.SharedData.AboutUser;
@@ -91,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements IMyServerDataRes
         mainBtnLogin.setVisibility(View.GONE);
         name = etUsername.getText().toString().trim();
         String pass = etPassword.getText().toString().trim();
-        new MyServerHttpRequestImpl().checkUser(MyParams.USER_CHECK, name, pass, new MyServerHttpResponseStatus(this));
+        new MyServerHttpRequestImpl().checkUser(MyParams.USER_CHECK, name, MD5Secret.getMD5String(pass), new MyServerHttpResponseStatus(this));
     }
 
     @Override

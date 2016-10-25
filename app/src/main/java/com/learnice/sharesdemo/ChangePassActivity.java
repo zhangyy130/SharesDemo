@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.learnice.sharesdemo.MyServerHttp.IMyServerDataResult;
 import com.learnice.sharesdemo.MyServerHttp.MyServerHttpRequestImpl;
 import com.learnice.sharesdemo.MyServerHttp.MyServerHttpResponseStatus;
+import com.learnice.sharesdemo.Other.MD5Secret;
 import com.learnice.sharesdemo.SharedData.AboutUser;
 
 import org.xutils.common.Callback;
@@ -89,7 +90,7 @@ public class ChangePassActivity extends AppCompatActivity implements IMyServerDa
                 mainBtnChangePass.setVisibility(View.GONE);
                 changePassProgressLayout.setVisibility(View.VISIBLE);
                 new MyServerHttpRequestImpl().checkUser("100", new AboutUser(this).readName(),
-                        currentPass, new MyServerHttpResponseStatus(this));
+                        MD5Secret.getMD5String(currentPass), new MyServerHttpResponseStatus(this));
             } else {
                 Toast.makeText(this, "输入的两次密码不同", Toast.LENGTH_SHORT).show();
             }
@@ -100,7 +101,7 @@ public class ChangePassActivity extends AppCompatActivity implements IMyServerDa
     @Override
     public void resultString(Object data) {
         if (Integer.valueOf(data.toString().trim()) != -1) {
-            new MyServerHttpRequestImpl().checkUser("102", new AboutUser(this).readName(), pass2, new Callback.CommonCallback<String>() {
+            new MyServerHttpRequestImpl().checkUser("102", new AboutUser(this).readName(), MD5Secret.getMD5String(pass2), new Callback.CommonCallback<String>() {
                 @Override
                 public void onSuccess(String result) {
                     if (result.toString().trim().equals("1")) {
