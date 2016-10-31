@@ -43,6 +43,7 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity implements Trend.Refresh {
     @BindView(R.id.toolbar)
@@ -70,13 +71,16 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
     FloatingActionButton hk;
     @BindView(R.id.us)
     FloatingActionButton us;
-
+    //PopupWindow popupWindow;
     SearchView searchView;
     netReceiver netReceiver;
     AlertDialog alertDialog;
     boolean isLoadTablayotu = true;
     @BindView(R.id.details_fab_bg)
     RelativeLayout detailsFabBg;
+    @BindView(R.id.overlay)
+    View overlay;
+
     //ListView listView;
     //List<String> tipData;
     //ArrayAdapter<String> arrayAdapter;
@@ -230,6 +234,9 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
         tablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                if (floatActionButtonMenu.isExpanded()){
+                    floatActionButtonMenu.collapse();
+                }
                 switch (tab.getPosition()) {
                     case 0:
                         tablayout.getTabAt(0).setIcon(R.mipmap.ic_home_white_24dp);
@@ -301,6 +308,17 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
     }
 
     public void testFloatButton() {
+        floatActionButtonMenu.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
+            @Override
+            public void onMenuExpanded() {
+                overlay.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onMenuCollapsed() {
+                overlay.setVisibility(View.GONE);
+            }
+        });
         sh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -360,6 +378,11 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
 
     }
 
+    @OnClick(R.id.overlay)
+    public void onClick() {
+        floatActionButtonMenu.collapse();
+    }
+
     public class netReceiver extends BroadcastReceiver {
 
         @Override
@@ -367,10 +390,19 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
             isNoNetwork();
         }
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(netReceiver);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (floatActionButtonMenu.isExpanded()){
+            floatActionButtonMenu.collapse();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }

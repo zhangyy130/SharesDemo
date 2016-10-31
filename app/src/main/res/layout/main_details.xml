@@ -37,6 +37,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/details_fab_bg">
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone"
+        android:background="#ccffffff"/>
 
         <com.getbase.floatingactionbutton.FloatingActionsMenu
 
@@ -50,20 +57,20 @@
             android:visibility="gone"
             app:fab_labelStyle="@style/menu_labels_style"
             app:fab_labelsPosition="left"
-            app:fab_addButtonColorNormal="#448AFF"
+            app:fab_addButtonColorNormal="@color/fabcolor"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/sh"
                 app:fab_icon="@mipmap/ic_cached_white_24dp"
-                app:fab_colorNormal="#0097A7"
+                app:fab_colorNormal="@color/fabsmallcolor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_title="沪股"
                 app:fab_size="mini" />
             <com.getbase.floatingactionbutton.FloatingActionButton
                 app:fab_icon="@mipmap/ic_cached_white_24dp"
-                app:fab_colorNormal="#0097A7"
+                app:fab_colorNormal="@color/fabsmallcolor"
                 android:id="@+id/sz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,7 +79,7 @@
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 app:fab_icon="@mipmap/ic_cached_white_24dp"
-                app:fab_colorNormal="#0097A7"
+                app:fab_colorNormal="@color/fabsmallcolor"
                 android:id="@+id/hk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,7 +88,7 @@
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 app:fab_icon="@mipmap/ic_cached_white_24dp"
-                app:fab_colorNormal="#0097A7"
+                app:fab_colorNormal="@color/fabsmallcolor"
                 android:id="@+id/us"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -10,4 +10,6 @@
     <color name="hint2">#727272</color>
     <color name="up">#D50000</color>
     <color name="down">#2E7D32</color>
+    <color name="fabcolor">#448AFF</color>
+    <color name="fabsmallcolor">#03A9F4</color>
 </resources>
