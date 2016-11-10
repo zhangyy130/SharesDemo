@@ -180,9 +180,15 @@ public class Trend extends Fragment implements SwipeRefreshLayout.OnRefreshListe
 
     }
 
+    @Override
+    public void resultSayList(String list, int position) {
+
+    }
+
 
     public void tabSh() {
         list.clear();
+        trendRecyclerAdapter.notifyDataSetChanged();
         refreshLayout.setRefreshing(true);
         type = MyURL.SHALL;
         new HttpRequestImpl().getData(type, "1", new HttpResponse(this, type));
@@ -190,6 +196,7 @@ public class Trend extends Fragment implements SwipeRefreshLayout.OnRefreshListe
 
     public void tabSz() {
         list.clear();
+        trendRecyclerAdapter.notifyDataSetChanged();
         refreshLayout.setRefreshing(true);
         type = MyURL.SZALL;
         new HttpRequestImpl().getData(type, "1", new HttpResponse(this, type));
@@ -197,6 +204,7 @@ public class Trend extends Fragment implements SwipeRefreshLayout.OnRefreshListe
 
     public void tabHk() {
         list.clear();
+        trendRecyclerAdapter.notifyDataSetChanged();
         refreshLayout.setRefreshing(true);
         type = MyURL.HKALL;
         new HttpRequestImpl().getData(type, "1", new HttpResponse(this, type));
@@ -204,6 +212,7 @@ public class Trend extends Fragment implements SwipeRefreshLayout.OnRefreshListe
 
     public void tabUs() {
         list.clear();
+        trendRecyclerAdapter.notifyDataSetChanged();
         refreshLayout.setRefreshing(true);
         type = MyURL.USALL;
         new HttpRequestImpl().getData(type, "1", new HttpResponse(this, type));

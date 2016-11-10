@@ -1,109 +1,117 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/layer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        >
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/trend_sh"
-            android:text="沪股"
+            style="@style/trend_text_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            style="@style/trend_text_style"/>
+            android:text="沪股" />
 
         <TextView
             android:id="@+id/trend_sz"
-            android:text="深圳"
+            style="@style/trend_text_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            style="@style/trend_text_style"/>
+            android:text="深圳" />
 
         <TextView
             android:id="@+id/trend_hk"
-            android:text="香港"
+            style="@style/trend_text_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            style="@style/trend_text_style"/>
+            android:text="香港" />
 
         <TextView
-            android:clickable="true"
             android:id="@+id/trend_us"
-            android:text="美国"
+            style="@style/trend_text_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:clickable="true"
             android:gravity="center"
-            style="@style/trend_text_style"/>
+            android:text="美国" />
     </LinearLayout>
 
     <LinearLayout
-        android:elevation="8dp"
-        android:background="@android:color/white"
         android:id="@+id/layer2"
-        android:layout_below="@id/layer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/layer1"
+        android:background="@android:color/white"
+        android:elevation="8dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/hint2"
-            android:gravity="center"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="名称代码" />
+            android:gravity="center"
+            android:text="名称代码"
+            android:textColor="@color/hint2" />
 
         <TextView
-            android:textColor="@color/hint2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="最新" />
+            android:text="最新"
+            android:textColor="@color/hint2" />
 
         <TextView
-            android:textColor="@color/hint2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="涨跌" />
+            android:text="涨跌"
+            android:textColor="@color/hint2" />
 
         <TextView
-            android:textColor="@color/hint2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="涨幅" />
+            android:text="涨幅"
+            android:textColor="@color/hint2" />
 
     </LinearLayout>
+
     <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/swipeRefreshLayuot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/layer2"
-        >
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/home_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_below="@id/layer2">
 
-        </android.support.v7.widget.RecyclerView>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/home_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 

@@ -65,11 +65,12 @@
             android:layout_toRightOf="@id/register_tv_secret"
             android:background="@null"
             android:hint="密码"
-            android:password="true"
             android:maxLines="1"
+            android:password="true"
             android:textColor="@android:color/black" />
 
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/register_passwordlayout2"
         android:layout_width="match_parent"
@@ -98,11 +99,12 @@
             android:layout_toRightOf="@id/register_tv_secret2"
             android:background="@null"
             android:hint="再次确认密码"
-            android:password="true"
             android:maxLines="1"
+            android:password="true"
             android:textColor="@android:color/black" />
 
     </RelativeLayout>
+
     <Button
         android:id="@+id/main_btn_register"
         android:layout_width="match_parent"
@@ -133,16 +135,45 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:clickable="false"
-            />
+            android:clickable="false" />
 
         <TextView
-            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/register_progress"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
             android:text="正在登陆..."
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/progress_layout_register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#99000000"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            android:id="@+id/login_progress_register"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:clickable="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_progress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="正在注册..."
             android:textColor="@android:color/white" />
     </RelativeLayout>
 </RelativeLayout>

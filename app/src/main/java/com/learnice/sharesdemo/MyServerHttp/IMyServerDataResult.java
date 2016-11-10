@@ -13,4 +13,6 @@ public interface IMyServerDataResult {
     public void resultString(Object data);
 
     public void resultSayList(String list);
+
+    public void resultSayList(String list,int position);
 }

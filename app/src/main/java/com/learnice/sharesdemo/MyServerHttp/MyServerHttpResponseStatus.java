@@ -7,15 +7,25 @@ import org.xutils.common.Callback;
  */
 public class MyServerHttpResponseStatus implements Callback.CommonCallback<String> {
     IMyServerDataResult iMyServerDataResult;
+    int operateCode = -1;
 
     public MyServerHttpResponseStatus(IMyServerDataResult iMyServerDataResult) {
         this.iMyServerDataResult = iMyServerDataResult;
     }
 
+    public MyServerHttpResponseStatus(IMyServerDataResult iMyServerDataResult, int operateCode) {
+        this.iMyServerDataResult = iMyServerDataResult;
+        this.operateCode = operateCode;
+    }
+
     @Override
     public void onSuccess(String result) {
         //待解析
-        iMyServerDataResult.resultString(result);
+        if (operateCode == -1) {
+            iMyServerDataResult.resultString(result);
+        } else {
+            iMyServerDataResult.resultSayList(result, operateCode);
+        }
     }
 
     @Override

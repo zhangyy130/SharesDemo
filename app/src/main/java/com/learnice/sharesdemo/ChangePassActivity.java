@@ -136,4 +136,9 @@ public class ChangePassActivity extends AppCompatActivity implements IMyServerDa
     public void resultSayList(String list) {
 
     }
+
+    @Override
+    public void resultSayList(String list, int position) {
+
+    }
 }

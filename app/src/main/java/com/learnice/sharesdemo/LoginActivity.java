@@ -119,6 +119,11 @@ public class LoginActivity extends AppCompatActivity implements IMyServerDataRes
     }
 
     @Override
+    public void resultSayList(String list, int position) {
+
+    }
+
+    @Override
     protected void onDestroy() {
         stopService(new Intent(this, SyncLocalDBServices.class));
         unregisterReceiver(syncSuccess);

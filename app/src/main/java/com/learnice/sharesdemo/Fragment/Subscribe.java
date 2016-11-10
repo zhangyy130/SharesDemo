@@ -180,6 +180,11 @@ public class Subscribe extends Fragment implements IDataResult, SwipeRefreshLayo
 
     }
 
+    @Override
+    public void resultSayList(String list, int position) {
+
+    }
+
 
     @Override
     public void onRefresh() {

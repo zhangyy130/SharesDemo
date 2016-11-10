@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.learnice.sharesdemo.Adapter.SayAdapter;
 import com.learnice.sharesdemo.Database.DbServices;
+import com.learnice.sharesdemo.Database.SharesDataBase;
 import com.learnice.sharesdemo.Http.HttpRequestImpl;
 import com.learnice.sharesdemo.Http.HttpResponse;
 import com.learnice.sharesdemo.Http.IDataResult;
@@ -262,15 +263,15 @@ public class DetailActivity extends BaseActivity implements IDataResult, IMyServ
     @Override
     public void resultString(Object data) {
         //拿到点击select后的服务器反馈的状态
-        select = !select;
-        if (select) {
-            isNoSelectCheckbox.setChecked(false);
-            isNoSelectText.setText("添加");
-        } else {
-            isNoSelectCheckbox.setChecked(true);
-            isNoSelectText.setText("删除");
-        }
-        Snackbar.make(detailToolbar, "操作成功", Snackbar.LENGTH_SHORT).show();
+//        select = !select;
+//        if (select) {
+//            isNoSelectCheckbox.setChecked(false);
+//            isNoSelectText.setText("添加");
+//        } else {
+//            isNoSelectCheckbox.setChecked(true);
+//            isNoSelectText.setText("删除");
+//        }
+//        Snackbar.make(detailToolbar, "操作成功", Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
@@ -295,6 +296,25 @@ public class DetailActivity extends BaseActivity implements IDataResult, IMyServ
 
     }
 
+    @Override
+    public void resultSayList(String list, int position) {
+        if (position == 0) {
+            select = !select;
+            if (select) {
+                isNoSelectCheckbox.setChecked(false);
+                isNoSelectText.setText("添加");
+            } else {
+                isNoSelectCheckbox.setChecked(true);
+                isNoSelectText.setText("删除");
+            }
+        } else if (position == 1) {
+            //增加一条say需要更新数据库中msg的数量
+//            allNum += 1;
+//            new DbServices(this).update(shares, SharesDataBase.SHARES_ALL_MSG,allNum);
+//            new DbServices(this).update(shares,SharesDataBase.SHARES_MSG,allNum);
+        }
+        Snackbar.make(detailToolbar, "操作成功", Snackbar.LENGTH_SHORT).show();
+    }
 
     public String harlderData(String data) {
         double value = Double.valueOf(data);
@@ -322,14 +342,14 @@ public class DetailActivity extends BaseActivity implements IDataResult, IMyServ
                     new MyServerHttpRequestImpl().getServerData("201",
                             new AboutUser(DetailActivity.this).readName(),
                             new Shares(stock.getStockType(), stock.getStockNum()),
-                            new MyServerHttpResponseStatus(DetailActivity.this));
+                            new MyServerHttpResponseStatus(DetailActivity.this, 0));
 
                 } else {
                     new DbServices(DetailActivity.this).delete(new Shares(stock.getStockType(), stock.getStockNum()));
                     sendBroadcast(new Intent("insert"));
                     new MyServerHttpRequestImpl().getServerData("202", new AboutUser(DetailActivity.this).readName(),
                             new Shares(stock.getStockType(), stock.getStockNum()),
-                            new MyServerHttpResponseStatus(DetailActivity.this));
+                            new MyServerHttpResponseStatus(DetailActivity.this, 0));
                 }
                 break;
             case R.id.me_say_submit:
@@ -346,7 +366,7 @@ public class DetailActivity extends BaseActivity implements IDataResult, IMyServ
                             CurrentTime.getCurrentTime());
                     new MyServerHttpRequestImpl().uploadSay("301",
                             say,
-                            new MyServerHttpResponseStatus(this));
+                            new MyServerHttpResponseStatus(this, 1));
                     sayList.add(say);
                     sayAdapter.notifyItemInserted(sayList.size());
                     break;

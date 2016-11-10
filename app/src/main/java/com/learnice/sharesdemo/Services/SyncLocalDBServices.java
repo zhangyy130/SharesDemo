@@ -59,6 +59,11 @@ public class SyncLocalDBServices extends Service {
             public void resultSayList(String list) {
 
             }
+
+            @Override
+            public void resultSayList(String list, int position) {
+
+            }
         }));
     }
 }
