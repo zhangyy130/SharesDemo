@@ -3,3 +3,5 @@
 
 
 ![Aaron Swartz](https://github.com/learnice/SharesDemo/raw/master/app/src/main/res/drawable/long_view.png?raw=true)
+![Aaron Swartz](https://github.com/learnice/SharesDemo/blob/master/app/src/main/res/drawable/trend_view.png?raw=true)
+![Aaron Swartz](https://github.com/learnice/SharesDemo/blob/master/app/src/main/res/drawable/say_view.png?raw=true)
