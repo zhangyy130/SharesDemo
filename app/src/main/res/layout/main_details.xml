@@ -9,91 +9,93 @@
         android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:theme="@style/costumActionBar">
-        </android.support.v7.widget.Toolbar>
+            app:theme="@style/costumActionBar" />
+
         <android.support.design.widget.TabLayout
-            app:tabIndicatorColor="#eeeeee"
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabSelectedTextColor="@android:color/darker_gray"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="#eeeeee"
             app:tabMode="fixed"
-            app:tabGravity="fill"></android.support.design.widget.TabLayout>
+            app:tabSelectedTextColor="@android:color/darker_gray" />
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v4.view.ViewPager>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <RelativeLayout
+        android:id="@+id/details_fab_bg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/details_fab_bg">
-    <View
-        android:id="@+id/overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:visibility="gone"
-        android:background="#ccffffff"/>
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ccffffff"
+            android:clickable="true"
+            android:visibility="gone" />
 
         <com.getbase.floatingactionbutton.FloatingActionsMenu
-
-            android:contextClickable="false"
             android:id="@+id/float_action_button_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="16dp"
+            android:contextClickable="false"
             android:visibility="gone"
+            app:fab_addButtonColorNormal="@color/fabcolor"
             app:fab_labelStyle="@style/menu_labels_style"
             app:fab_labelsPosition="left"
-            app:fab_addButtonColorNormal="@color/fabcolor"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/sh"
-                app:fab_icon="@mipmap/ic_cached_white_24dp"
-                app:fab_colorNormal="@color/fabsmallcolor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fab_title="沪股"
-                app:fab_size="mini" />
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                app:fab_icon="@mipmap/ic_cached_white_24dp"
                 app:fab_colorNormal="@color/fabsmallcolor"
+                app:fab_icon="@mipmap/ic_cached_white_24dp"
+                app:fab_size="mini"
+                app:fab_title="沪股" />
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/sz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/fabsmallcolor"
+                app:fab_icon="@mipmap/ic_cached_white_24dp"
                 app:fab_size="mini"
-                app:fab_title="深圳"/>
+                app:fab_title="深圳" />
 
             <com.getbase.floatingactionbutton.FloatingActionButton
-                app:fab_icon="@mipmap/ic_cached_white_24dp"
-                app:fab_colorNormal="@color/fabsmallcolor"
                 android:id="@+id/hk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/fabsmallcolor"
+                app:fab_icon="@mipmap/ic_cached_white_24dp"
                 app:fab_size="mini"
-                app:fab_title="香港"/>
+                app:fab_title="香港" />
 
             <com.getbase.floatingactionbutton.FloatingActionButton
-                app:fab_icon="@mipmap/ic_cached_white_24dp"
-                app:fab_colorNormal="@color/fabsmallcolor"
                 android:id="@+id/us"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/fabsmallcolor"
+                app:fab_icon="@mipmap/ic_cached_white_24dp"
                 app:fab_size="mini"
-                app:fab_title="美国"/>
+                app:fab_title="美国" />
         </com.getbase.floatingactionbutton.FloatingActionsMenu>
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

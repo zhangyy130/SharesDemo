@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8EAF6"
-    tools:context="com.learnice.sharesdemo.RegisterActivity">
+    tools:context="com.learnice.sharesdemo.ui.register.Activity.RegisterActivity">
 
     <RelativeLayout
         android:id="@+id/register_usernamelayout"

@@ -3,6 +3,8 @@ package com.learnice.sharesdemo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
+import com.learnice.sharesdemo.ui.main.activity.MainActivity;
+
 /**
  * Created by Xuebin He on 2016/9/19.
  */
@@ -17,12 +19,6 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-        if (this instanceof MainActivity){
-
-        }
-        else {
-            overridePendingTransition(R.anim.anim_in_left_right,R.anim.anim_out_left_right);
-        }
-
+        overridePendingTransition(R.anim.anim_in_left_right,R.anim.anim_out_left_right);
     }
 }

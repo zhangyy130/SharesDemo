@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.learnice.sharesdemo.Fragment.Home;
-import com.learnice.sharesdemo.Fragment.Subscribe;
-import com.learnice.sharesdemo.Fragment.Trend;
+import com.learnice.sharesdemo.ui.main.fragment.Home;
+import com.learnice.sharesdemo.ui.main.fragment.Subscribe;
+import com.learnice.sharesdemo.ui.main.fragment.Trend;
 
 /**
  * Created by Xuebin He on 2016/6/14.

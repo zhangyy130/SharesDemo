@@ -1,18 +1,14 @@
-package com.learnice.sharesdemo;
+package com.learnice.sharesdemo.ui.main.activity;
 
 import android.app.AlertDialog;
 import android.app.SearchManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -25,27 +21,32 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+import com.learnice.base_library.base.BaseActivity;
+import com.learnice.sharesdemo.AboutMeActivity;
 import com.learnice.sharesdemo.Adapter.MViewPagerAdapter;
+import com.learnice.sharesdemo.ChangePassActivity;
+import com.learnice.sharesdemo.ConfirmPatternView;
 import com.learnice.sharesdemo.Database.DbManager;
-import com.learnice.sharesdemo.Fragment.Subscribe;
-import com.learnice.sharesdemo.Fragment.Trend;
+import com.learnice.sharesdemo.ui.main.fragment.Subscribe;
+import com.learnice.sharesdemo.ui.main.fragment.Trend;
 import com.learnice.sharesdemo.Http.MyURL;
+import com.learnice.sharesdemo.ui.login.Activity.LoginActivity;
+import com.learnice.sharesdemo.R;
+import com.learnice.sharesdemo.SetPatternView;
 import com.learnice.sharesdemo.SharedData.AboutLogin;
 import com.learnice.sharesdemo.SharedData.AboutPatternLock;
 import com.learnice.sharesdemo.SharedData.AboutUser;
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
+import com.learnice.sharesdemo.ui.main.contract.MainContract;
+import com.learnice.sharesdemo.ui.main.presenter.MainPresenter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity implements Trend.Refresh {
+public class MainActivity extends BaseActivity implements MainContract.View, Trend.Refresh {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tablayout)
@@ -54,8 +55,6 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
     AppBarLayout appbarLayout;
     @BindView(R.id.viewpager)
     ViewPager viewpager;
-    @BindView(R.id.coordinatorLayout)
-    CoordinatorLayout coordinatorLayout;
     @BindView(R.id.navigation)
     NavigationView navigation;
     @BindView(R.id.drawerlayout)
@@ -73,22 +72,23 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
     FloatingActionButton us;
     //PopupWindow popupWindow;
     SearchView searchView;
-    netReceiver netReceiver;
     AlertDialog alertDialog;
-    boolean isLoadTablayotu = true;
-    @BindView(R.id.details_fab_bg)
-    RelativeLayout detailsFabBg;
+
     @BindView(R.id.overlay)
     View overlay;
 
-    //ListView listView;
-    //List<String> tipData;
-    //ArrayAdapter<String> arrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(MainActivity.this);
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void initView() {
         setupToolbar();
         setAlertDialog();
         isNoNetwork();
@@ -101,18 +101,18 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
         } else if (!AboutPatternLock.readPatternBool(this)) {
             navigation.getMenu().getItem(0).setTitle("手势密码          关");
         }
-        netReceiver = new netReceiver();
-        IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-        registerReceiver(netReceiver, intentFilter);
     }
 
+    @Override
+    public void initPresenter() {
+        mPresenter = new MainPresenter(this);
+    }
+
+
     public void setupSplash() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                setupTablelayout();
-            }
-        }, 500);
+
+        setupTablelayout();
+
     }
 
     //为网络提醒设置一个全局的alertdialog
@@ -133,9 +133,9 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isAvailable()) {
-            if (isLoadTablayotu) {
-                setupSplash();
-            }
+
+            setupSplash();
+
             if (alertDialog.isShowing()) {
 
                 alertDialog.dismiss();
@@ -171,22 +171,6 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
                     case R.id.item2:
                         startActivity(new Intent(MainActivity.this, ChangePassActivity.class));
                         break;
-                    case R.id.item4:
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        builder.setMessage("新版本正在开发中").setPositiveButton("好", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        }).show();
-                        break;
-                    case R.id.item5:
-                        AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-                        builder1.setMessage("微博：learnicehe.cn").setPositiveButton("好", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        }).show();
-                        break;
                     case R.id.item6:
                         Intent intent6 = new Intent(MainActivity.this, AboutMeActivity.class);
                         intent6.putExtra("url", MyURL.MY_SERVWE_ME);
@@ -221,20 +205,25 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
     }
 
     public void setupTablelayout() {
-        isLoadTablayotu = false;
+
         MViewPagerAdapter mviewPagerAdapter = new MViewPagerAdapter(this, getSupportFragmentManager());
+        viewpager.setOffscreenPageLimit(2);
         viewpager.setAdapter(mviewPagerAdapter);
         tablayout.setupWithViewPager(viewpager);
         //tablayout.setTabsFromPagerAdapter(mviewPagerAdapter);
-        int[] image = new int[]{R.mipmap.ic_home_white_24dp, R.mipmap.ic_subscriptions_black_24dp,
+        int[] image = new int[]{
+                R.mipmap.ic_home_white_24dp,
+                R.mipmap.ic_subscriptions_black_24dp,
                 R.mipmap.ic_trending_up_black_24dp};
+
         for (int i = 0; i < tablayout.getTabCount(); i++) {
             tablayout.getTabAt(i).setIcon(image[i]);
         }
+
         tablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (floatActionButtonMenu.isExpanded()){
+                if (floatActionButtonMenu.isExpanded()) {
                     floatActionButtonMenu.collapse();
                 }
                 switch (tab.getPosition()) {
@@ -383,25 +372,11 @@ public class MainActivity extends BaseActivity implements Trend.Refresh {
         floatActionButtonMenu.collapse();
     }
 
-    public class netReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            isNoNetwork();
-        }
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(netReceiver);
-    }
-
     @Override
     public void onBackPressed() {
-        if (floatActionButtonMenu.isExpanded()){
+        if (floatActionButtonMenu.isExpanded()) {
             floatActionButtonMenu.collapse();
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
     }
