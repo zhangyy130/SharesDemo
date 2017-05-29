@@ -11,7 +11,6 @@ import com.learnice.base_library.base.BaseActivity;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.app.App;
 import com.learnice.sharesdemo.ui.register.Activity.RegisterActivity;
-import com.learnice.sharesdemo.SharedData.AboutLogin;
 import com.learnice.sharesdemo.ui.login.contract.LoginContract;
 import com.learnice.sharesdemo.ui.login.presenter.LoginPresenter;
 import com.learnice.sharesdemo.ui.main.activity.MainActivity;

@@ -9,8 +9,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.learnice.sharesdemo.Adapter.HomeViewPagerAdapter;
-import com.learnice.sharesdemo.SharedData.AboutFirst;
+import com.learnice.sharesdemo.widget.adapter.HomeViewPagerAdapter;
+import com.learnice.sharesdemo.shareddata.AboutFirst;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,7 +1,7 @@
 package com.learnice.sharesdemo.ui.register.presenter;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.learnice.sharesdemo.FunInterface.Idone;
+import com.learnice.sharesdemo.fi.Idone;
 import com.learnice.sharesdemo.ui.register.contract.RegisterContract;
 import com.learnice.sharesdemo.ui.register.model.RegisterModel;
 

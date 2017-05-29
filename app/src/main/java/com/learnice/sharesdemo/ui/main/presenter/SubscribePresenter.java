@@ -3,8 +3,8 @@ package com.learnice.sharesdemo.ui.main.presenter;
 import android.util.Log;
 
 import com.learnice.base_library.baserx.RxManager;
-import com.learnice.sharesdemo.FunInterface.IDO;
-import com.learnice.sharesdemo.FunInterface.ISubscribe;
+import com.learnice.sharesdemo.fi.IDO;
+import com.learnice.sharesdemo.fi.ISubscribe;
 import com.learnice.sharesdemo.bean.HKStockBean;
 import com.learnice.sharesdemo.bean.StandStockBean;
 import com.learnice.sharesdemo.bean.StockResponse;

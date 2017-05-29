@@ -3,7 +3,7 @@ package com.learnice.sharesdemo.ui.register.contract;
 import com.learnice.base_library.base.BaseModel;
 import com.learnice.base_library.base.BasePresenter;
 import com.learnice.base_library.base.BaseView;
-import com.learnice.sharesdemo.FunInterface.Idone;
+import com.learnice.sharesdemo.fi.Idone;
 
 /**
  * Created by Xuebin He on 2017/5/24.

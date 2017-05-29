@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo.FunInterface;
+package com.learnice.sharesdemo.fi;
 
 /**
  * Created by Xuebin He on 2017/5/24.

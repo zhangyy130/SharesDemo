@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo.Adapter;
+package com.learnice.sharesdemo.widget.adapter;
 
 import com.learnice.base_library.base_adapter.BaseAdapter;
 import com.learnice.base_library.base_adapter.BaseViewHolder;

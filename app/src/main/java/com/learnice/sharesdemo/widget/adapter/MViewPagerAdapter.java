@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo.Adapter;
+package com.learnice.sharesdemo.widget.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

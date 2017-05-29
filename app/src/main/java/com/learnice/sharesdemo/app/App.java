@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 import com.blankj.utilcode.util.Utils;
 import com.learnice.base_library.app.BaseApplication;
-import com.learnice.sharesdemo.Database.DbServices;
+import com.learnice.sharesdemo.database.DbServices;
 
 import cn.bmob.v3.Bmob;
 

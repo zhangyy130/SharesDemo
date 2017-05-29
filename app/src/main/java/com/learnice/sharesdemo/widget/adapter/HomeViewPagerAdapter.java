@@ -1,12 +1,10 @@
-package com.learnice.sharesdemo.Adapter;
+package com.learnice.sharesdemo.widget.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import com.learnice.sharesdemo.R;
 
 /**
  * Created by Xuebin He on 2016/6/25.

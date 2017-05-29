@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.learnice.base_library.base.BaseFragment;
 import com.learnice.base_library.base_adapter.OnItemClickListener;
-import com.learnice.sharesdemo.Adapter.SubscribeAdapter;
+import com.learnice.sharesdemo.widget.adapter.SubscribeAdapter;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.bean.StandStockBean;
 import com.learnice.sharesdemo.ui.details.Activity.DetailsActivity;

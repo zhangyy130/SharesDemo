@@ -6,8 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.widget.Button;
 
-import com.learnice.sharesdemo.SharedData.AboutFirst;
-import com.learnice.sharesdemo.SharedData.AboutPatternLock;
+import com.learnice.sharesdemo.shareddata.AboutFirst;
+import com.learnice.sharesdemo.shareddata.AboutPatternLock;
 import com.learnice.sharesdemo.ui.login.Activity.LoginActivity;
 
 import java.util.List;

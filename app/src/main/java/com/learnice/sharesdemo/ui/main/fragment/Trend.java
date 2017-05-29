@@ -12,11 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.learnice.base_library.base.BaseFragment;
 import com.learnice.base_library.base_adapter.OnItemClickListener;
 import com.learnice.base_library.base_adapter.OnLoadMoreListener;
-import com.learnice.sharesdemo.Adapter.TrendAdapter;
+import com.learnice.sharesdemo.widget.adapter.TrendAdapter;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.bean.SHStockListBean;
 import com.learnice.sharesdemo.ui.details.Activity.DetailsActivity;

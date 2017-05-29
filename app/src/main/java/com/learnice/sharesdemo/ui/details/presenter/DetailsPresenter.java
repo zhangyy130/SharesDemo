@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.learnice.base_library.baserx.RxManager;
-import com.learnice.sharesdemo.FunInterface.IDO;
-import com.learnice.sharesdemo.FunInterface.Idone;
+import com.learnice.sharesdemo.fi.IDO;
+import com.learnice.sharesdemo.fi.Idone;
 import com.learnice.sharesdemo.app.App;
 import com.learnice.sharesdemo.bean.HKStockBean;
 import com.learnice.sharesdemo.bean.StandStockBean;

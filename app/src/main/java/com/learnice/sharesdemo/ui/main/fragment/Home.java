@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import com.learnice.base_library.base.BaseFragment;
-import com.learnice.sharesdemo.Adapter.HomeRecyclerViewAdapter;
+import com.learnice.sharesdemo.widget.adapter.HomeRecyclerViewAdapter;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.bean.NewsBean;
 import com.learnice.sharesdemo.ui.main.contract.HomeContract;

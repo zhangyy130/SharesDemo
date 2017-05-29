@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo.Database;
+package com.learnice.sharesdemo.database;
 
 import android.content.ContentValues;
 import android.content.Context;

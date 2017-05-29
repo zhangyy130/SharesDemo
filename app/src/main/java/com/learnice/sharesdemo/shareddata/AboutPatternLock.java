@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo.SharedData;
+package com.learnice.sharesdemo.shareddata;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,7 +1,7 @@
 package com.learnice.sharesdemo.ui.login.model;
 
-import com.learnice.sharesdemo.FunInterface.IDO;
-import com.learnice.sharesdemo.FunInterface.Idone;
+import com.learnice.sharesdemo.fi.IDO;
+import com.learnice.sharesdemo.fi.Idone;
 import com.learnice.sharesdemo.bean.Shares;
 import com.learnice.sharesdemo.app.App;
 import com.learnice.sharesdemo.bean.tb_shares;

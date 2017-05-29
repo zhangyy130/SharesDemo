@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo.Database;
+package com.learnice.sharesdemo.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

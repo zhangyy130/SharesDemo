@@ -2,9 +2,9 @@ package com.learnice.sharesdemo.ui.main.model;
 
 import android.database.Cursor;
 
-import com.learnice.sharesdemo.Database.SharesDataBase;
-import com.learnice.sharesdemo.FunInterface.IDO;
-import com.learnice.sharesdemo.FunInterface.ISubscribe;
+import com.learnice.sharesdemo.database.SharesDataBase;
+import com.learnice.sharesdemo.fi.IDO;
+import com.learnice.sharesdemo.fi.ISubscribe;
 import com.learnice.sharesdemo.api.Api;
 import com.learnice.sharesdemo.api.ApiConstants;
 import com.learnice.sharesdemo.api.HostType;

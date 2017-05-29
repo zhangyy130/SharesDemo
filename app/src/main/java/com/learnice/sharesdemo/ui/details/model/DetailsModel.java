@@ -1,7 +1,7 @@
 package com.learnice.sharesdemo.ui.details.model;
 
-import com.learnice.sharesdemo.FunInterface.IDO;
-import com.learnice.sharesdemo.FunInterface.Idone;
+import com.learnice.sharesdemo.fi.IDO;
+import com.learnice.sharesdemo.fi.Idone;
 import com.learnice.sharesdemo.bean.Shares;
 import com.learnice.sharesdemo.api.Api;
 import com.learnice.sharesdemo.api.ApiConstants;

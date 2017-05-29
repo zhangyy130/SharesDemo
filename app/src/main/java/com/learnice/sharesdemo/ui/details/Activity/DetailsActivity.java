@@ -15,7 +15,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.learnice.base_library.base.BaseActivity;
-import com.learnice.sharesdemo.Adapter.SayAdapter;
+import com.learnice.sharesdemo.widget.adapter.SayAdapter;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.bean.StandStockBean;
 import com.learnice.sharesdemo.bean.tb_say;
