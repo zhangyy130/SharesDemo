@@ -2,6 +2,7 @@ package com.learnice.sharesdemo.ui.main.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -55,6 +56,7 @@ public class Subscribe extends BaseFragment<SubscribePresenter> implements Subsc
         subscribeRecyclerview.setLayoutManager(new LinearLayoutManager(mContext));
         subscribeRecyclerview.setAdapter(adapter);
         mPresenter.getSubscribeData();
+        subscribeSwipeRefreshLayuot.setColorSchemeColors(ContextCompat.getColor(mContext, R.color.colorPrimary));
         subscribeSwipeRefreshLayuot.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

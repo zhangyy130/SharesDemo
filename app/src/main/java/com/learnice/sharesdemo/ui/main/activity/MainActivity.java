@@ -31,10 +31,6 @@ import com.learnice.sharesdemo.Adapter.MViewPagerAdapter;
 import com.learnice.sharesdemo.ChangePassActivity;
 import com.learnice.sharesdemo.ConfirmPatternView;
 import com.learnice.sharesdemo.Database.DbManager;
-import com.learnice.sharesdemo.bean.StockType;
-import com.learnice.sharesdemo.ui.main.fragment.Subscribe;
-import com.learnice.sharesdemo.ui.main.fragment.Trend;
-import com.learnice.sharesdemo.Http.MyURL;
 import com.learnice.sharesdemo.ui.login.Activity.LoginActivity;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.SetPatternView;
@@ -178,9 +174,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         startActivity(new Intent(MainActivity.this, ChangePassActivity.class));
                         break;
                     case R.id.item6:
-                        Intent intent6 = new Intent(MainActivity.this, AboutMeActivity.class);
-                        intent6.putExtra("url", MyURL.MY_SERVWE_ME);
-                        startActivity(intent6);
                         break;
                     case R.id.item7:
                         new AlertDialog.Builder(MainActivity.this)

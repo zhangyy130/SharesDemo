@@ -1,7 +1,7 @@
 package com.learnice.sharesdemo.ui.main.model;
 
-import com.learnice.sharesdemo.Http.MyURL;
 import com.learnice.sharesdemo.api.Api;
+import com.learnice.sharesdemo.api.ApiConstants;
 import com.learnice.sharesdemo.api.HostType;
 import com.learnice.sharesdemo.bean.NewsListResponse;
 import com.learnice.sharesdemo.bean.NewsBean;
@@ -21,6 +21,6 @@ public class HomeModel implements HomeContract.Model {
     public Observable<NewsListResponse<NewsBean>> loadNews() {
 
         return Api.getDefault(HostType.JU_HE_NEWS)
-                .getNewsData(MyURL.NEWS_KEY, NEWS_TYPE);
+                .getNewsData(ApiConstants.NEW_APPKEY, NEWS_TYPE);
     }
 }
