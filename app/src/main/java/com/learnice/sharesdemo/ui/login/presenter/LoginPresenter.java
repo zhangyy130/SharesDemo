@@ -1,6 +1,7 @@
 package com.learnice.sharesdemo.ui.login.presenter;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.learnice.sharesdemo.FunInterface.IDO;
 import com.learnice.sharesdemo.FunInterface.Idone;
 import com.learnice.sharesdemo.app.App;
 import com.learnice.sharesdemo.ui.login.contract.LoginContract;
@@ -43,6 +44,18 @@ public class LoginPresenter implements LoginContract.Presenter {
                     mView.loginSuccess();
                     app.writeName(name);
                     app.writeLoginSuccess();
+                    ToastUtils.showShortToast("开始同步数据");
+                    mModel.syncData(name, new IDO<Boolean>() {
+
+                        @Override
+                        public void done(Boolean aBoolean) {
+                            if (aBoolean) {
+                                ToastUtils.showShortToast("同步成功");
+                            } else {
+                                ToastUtils.showShortToast("同步失败");
+                            }
+                        }
+                    });
                 }
                 ToastUtils.showShortToast(status);
             }

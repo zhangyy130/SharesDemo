@@ -8,10 +8,19 @@ import cn.bmob.v3.BmobObject;
  */
 
 public class tb_say extends BmobObject {
+    private String userName;
     private String sharesType;
     private String sharesNumber;
     private String sharesName;
     private String content;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public String getSharesType() {
         return sharesType;

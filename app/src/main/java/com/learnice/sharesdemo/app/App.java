@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.blankj.utilcode.util.Utils;
 import com.learnice.base_library.app.BaseApplication;
+import com.learnice.sharesdemo.Database.DbServices;
 
 import cn.bmob.v3.Bmob;
 
@@ -16,6 +17,7 @@ import cn.bmob.v3.Bmob;
 public class App extends BaseApplication {
 
     private static App instance;
+    public DbServices dbServices;
 
     @Override
     public void onCreate() {
@@ -23,6 +25,7 @@ public class App extends BaseApplication {
         instance = this;
         Bmob.initialize(this, "46af27f1da81ec401f1b58fae9999642");
         Utils.init(this);
+        dbServices = new DbServices(this);
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo.Stock;
+package com.learnice.sharesdemo.bean;
 
 /**
  * Created by Xuebin He on 2016/6/19.

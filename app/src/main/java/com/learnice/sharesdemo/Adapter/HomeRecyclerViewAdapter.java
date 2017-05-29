@@ -1,27 +1,9 @@
 package com.learnice.sharesdemo.Adapter;
 
-import android.content.Context;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
 import com.learnice.base_library.base_adapter.BaseAdapter;
 import com.learnice.base_library.base_adapter.BaseViewHolder;
-import com.learnice.sharesdemo.Other.RecyclerViewListener;
 import com.learnice.sharesdemo.R;
-import com.learnice.sharesdemo.Stock.News;
 import com.learnice.sharesdemo.bean.NewsBean;
-
-import java.util.List;
-
-import me.relex.circleindicator.CircleIndicator;
-
-import static com.learnice.sharesdemo.R.id.home_news_title;
 
 /**
  * Created by Xuebin He on 2016/6/25.

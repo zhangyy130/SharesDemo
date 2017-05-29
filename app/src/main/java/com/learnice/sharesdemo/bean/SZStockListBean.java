@@ -1,28 +1,27 @@
 package com.learnice.sharesdemo.bean;
 
 /**
- * Created by Xuebin He on 2017/5/24.
+ * Created by Xuebin He on 2017/5/25.
  * e-mail:learnice.he@gmail.com.
  */
 
-public class StockListBean {
+public class SZStockListBean {
 
     /**
-     * symbol : sh600000
-     * name : 浦发银行
-     * trade : 15.470
-     * pricechange : 0.040
-     * changepercent : 0.259
-     * buy : 15.490
-     * sell : 15.500
-     * settlement : 15.430
-     * open : 15.380
-     * high : 15.520
-     * low : 15.210
-     * volume : 704390
-     * amount : 1081376996
-     * code : 600000
-     * ticktime : 15:00:00
+     * symbol : sz300001
+     * name : 特锐德
+     * trade : 20.450
+     * pricechange : 0.060
+     * changepercent : 0.294
+     * buy : 20.440
+     * sell : 20.450
+     * settlement : 20.390
+     * open : 21.010
+     * high : 21.040
+     * low : 19.610
+     * volume : 71773
+     * amount : 146356152
+     * ticktime : 10:41:25
      */
 
     private String symbol;
@@ -38,7 +37,6 @@ public class StockListBean {
     private String low;
     private int volume;
     private int amount;
-    private String code;
     private String ticktime;
 
     public String getSymbol() {
@@ -143,14 +141,6 @@ public class StockListBean {
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getTicktime() {

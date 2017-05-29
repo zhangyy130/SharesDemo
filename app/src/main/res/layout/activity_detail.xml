@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.learnice.sharesdemo.DetailActivity">
+    tools:context="com.learnice.sharesdemo.ui.details.Activity.DetailsActivity">
 
     <android.support.v7.widget.Toolbar
-        android:elevation="8dp"
         android:id="@+id/detail_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
+        android:background="@color/colorPrimary"
+        android:elevation="8dp"></android.support.v7.widget.Toolbar>
 
     <LinearLayout
-        android:elevation="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
+        android:elevation="8dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -87,11 +87,11 @@
 
                 <TextView
                     android:id="@+id/detail_traNumber"
-                    android:textColor="@color/hint2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="@color/hint2" />
             </LinearLayout>
 
             <LinearLayout
@@ -159,11 +159,11 @@
             <TextView
                 android:id="@+id/detail_date"
                 android:layout_width="match_parent"
-                android:textColor="@color/hint2"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textColor="@color/hint2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -221,6 +221,7 @@
             android:id="@+id/liner_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:background="@android:color/white"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -235,12 +236,12 @@
                 android:enabled="false" />
 
             <TextView
-                android:textColor="@color/hint"
                 android:id="@+id/is_no_select_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
-                android:text="添加" />
+                android:text="添加"
+                android:textColor="@color/hint" />
         </LinearLayout>
     </LinearLayout>
 
@@ -250,7 +251,6 @@
         android:background="@android:color/darker_gray" />
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/detail_stockName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -258,7 +258,8 @@
         android:gravity="center"
         android:text="评论"
         android:textColor="@android:color/black"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/detail_stockNum"
@@ -296,12 +297,12 @@
             android:textColor="@android:color/darker_gray" />
 
         <Button
-            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/me_say_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:text="提交"
             android:textColor="@android:color/black" />
     </RelativeLayout>

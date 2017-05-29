@@ -1,6 +1,10 @@
 package com.learnice.sharesdemo.ui.login.model;
 
+import com.learnice.sharesdemo.FunInterface.IDO;
 import com.learnice.sharesdemo.FunInterface.Idone;
+import com.learnice.sharesdemo.bean.Shares;
+import com.learnice.sharesdemo.app.App;
+import com.learnice.sharesdemo.bean.tb_shares;
 import com.learnice.sharesdemo.bean.tb_user;
 import com.learnice.sharesdemo.ui.login.contract.LoginContract;
 
@@ -48,6 +52,27 @@ public class LoginModel implements LoginContract.Model {
                     //发生错误
                 } else {
                     idone.done(OCCUR_EXCEPTION);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void syncData(String name, final IDO<Boolean> ido) {
+        BmobQuery<tb_shares> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereEqualTo("userName", name);
+        bmobQuery.findObjects(new FindListener<tb_shares>() {
+            @Override
+            public void done(List<tb_shares> list, BmobException e) {
+                if (e == null) {
+                    for (tb_shares shares : list) {
+                        Shares share = new Shares(shares.getSharesType(), shares.getSharesNumber());
+                        App.getInstance().dbServices.add(share);
+                    }
+                    ido.done(true);
+
+                } else {
+                    ido.done(false);
                 }
             }
         });

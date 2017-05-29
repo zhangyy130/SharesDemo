@@ -35,11 +35,11 @@ public class StockListResponse<T> {
         this.reason = reason;
     }
 
-    public ResultBean getResult() {
+    public ResultBean<T> getResult() {
         return result;
     }
 
-    public void setResult(ResultBean result) {
+    public void setResult(ResultBean<T> result) {
         this.result = result;
     }
 
@@ -80,7 +80,7 @@ public class StockListResponse<T> {
             this.num = num;
         }
 
-        public List<?> getData() {
+        public List<T> getData() {
             return data;
         }
 

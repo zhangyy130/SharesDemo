@@ -1,54 +1,30 @@
 package com.learnice.sharesdemo.Adapter;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
+import com.learnice.base_library.base_adapter.BaseAdapter;
+import com.learnice.base_library.base_adapter.BaseViewHolder;
 import com.learnice.sharesdemo.R;
-import com.learnice.sharesdemo.Stock.Say;
-
-import java.util.List;
+import com.learnice.sharesdemo.bean.tb_say;
 
 /**
  * Created by Xuebin He on 2016/6/24.
  */
-public class SayAdapter extends RecyclerView.Adapter<SayAdapter.MyViewHolder> {
-    LayoutInflater layoutInflater;
-    List<Say> list;
-    public SayAdapter(Context context, List<Say> list) {
-        this.layoutInflater=LayoutInflater.from(context);
-        this.list=list;
+public class SayAdapter extends BaseAdapter<tb_say> {
+
+
+    @Override
+    protected void bind(BaseViewHolder viewHolder, int layoutRes) {
+
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view=layoutInflater.inflate(R.layout.say_list_item,null);
-        MyViewHolder viewHolder=new MyViewHolder(view);
-        return viewHolder;
+    public int getLayoutRes(int index) {
+        return R.layout.say_list_item;
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.sayName.setText(list.get(position).getUserName());
-        holder.SayContent.setText(list.get(position).getContent());
-        holder.SayContentTime.setText(list.get(position).getContentTime());
-    }
-
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
-    TextView sayName,SayContent,SayContentTime;
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            sayName= (TextView) itemView.findViewById(R.id.say_name);
-            SayContent= (TextView) itemView.findViewById(R.id.say_content);
-            SayContentTime= (TextView) itemView.findViewById(R.id.say_content_time);
-        }
+    public void convert(BaseViewHolder holder, tb_say data, int index) {
+        holder.setText(R.id.say_name,data.getUserName());
+        holder.setText(R.id.say_content,data.getContent());
+        holder.setText(R.id.say_content_time,data.getCreatedAt());
     }
 }

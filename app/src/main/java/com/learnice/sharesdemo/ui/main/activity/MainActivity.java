@@ -31,6 +31,7 @@ import com.learnice.sharesdemo.Adapter.MViewPagerAdapter;
 import com.learnice.sharesdemo.ChangePassActivity;
 import com.learnice.sharesdemo.ConfirmPatternView;
 import com.learnice.sharesdemo.Database.DbManager;
+import com.learnice.sharesdemo.bean.StockType;
 import com.learnice.sharesdemo.ui.main.fragment.Subscribe;
 import com.learnice.sharesdemo.ui.main.fragment.Trend;
 import com.learnice.sharesdemo.Http.MyURL;
@@ -46,7 +47,12 @@ import com.learnice.sharesdemo.ui.main.presenter.MainPresenter;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity implements MainContract.View, Trend.Refresh {
+import static com.learnice.sharesdemo.bean.StockType.HK;
+import static com.learnice.sharesdemo.bean.StockType.SH;
+import static com.learnice.sharesdemo.bean.StockType.SZ;
+import static com.learnice.sharesdemo.bean.StockType.US;
+
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tablayout)
@@ -311,41 +317,31 @@ public class MainActivity extends BaseActivity implements MainContract.View, Tre
         sh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Trend trend = (Trend) getSupportFragmentManager().findFragmentById(R.id.viewpager);
-                trend.tabSh();
+                mPresenter.selectStock(SH);
                 floatActionButtonMenu.collapse();
             }
         });
         sz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Trend trend = (Trend) getSupportFragmentManager().findFragmentById(R.id.viewpager);
-                trend.tabSz();
+                mPresenter.selectStock(SZ);
                 floatActionButtonMenu.collapse();
             }
         });
         hk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Trend trend = (Trend) getSupportFragmentManager().findFragmentById(R.id.viewpager);
-                trend.tabHk();
+                mPresenter.selectStock(HK);
                 floatActionButtonMenu.collapse();
             }
         });
         us.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Trend trend = (Trend) getSupportFragmentManager().findFragmentById(R.id.viewpager);
-                trend.tabUs();
+                mPresenter.selectStock(US);
                 floatActionButtonMenu.collapse();
             }
         });
-    }
-
-    @Override
-    public void refresh() {
-        Subscribe subscribe = (Subscribe) getSupportFragmentManager().findFragmentById(R.id.viewpager);
-        subscribe.onRefresh();
     }
 
     @Override

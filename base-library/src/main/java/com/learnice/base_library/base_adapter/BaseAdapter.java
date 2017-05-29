@@ -1,6 +1,7 @@
 package com.learnice.base_library.base_adapter;
 
 import java.util.List;
+
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.util.DiffUtil;
@@ -9,8 +10,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.learnice.base_library.R;
+
 import java.util.ArrayList;
+
+import static android.R.attr.data;
 
 /**
  * Created by Xuebin He on 2017/4/25.
@@ -114,6 +119,35 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
                 notifyItemRangeChanged(position, count, payload);
             }
         });
+    }
+
+    //添加数据
+    public void addData(List<? extends T> data) {
+        //没有设置callback 直接刷新数据
+        if (mCallBack == null) {
+            if (data != null) {
+                mData.addAll(data);
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    //清除数据
+    public void clearData() {
+
+        mData.clear();
+        notifyDataSetChanged();
+    }
+
+    //返回列表中的数据
+    public T getOneData(int position) {
+        return this.mData.get(position);
+    }
+
+    //添加单个bean
+    public void addBean(T t) {
+        mData.add(t);
+        notifyItemInserted(mData.size() - 1);
     }
 
     public void setCallBack(DiffUtilCallback<T> callback) {

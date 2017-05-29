@@ -1,6 +1,4 @@
-package com.learnice.sharesdemo.Other;
-
-import android.util.Log;
+package com.learnice.base_library.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
-import com.learnice.sharesdemo.Stock.Shares;
+import com.learnice.sharesdemo.bean.Shares;
 
 /**
  * Created by Xuebin He on 2016/6/19.
