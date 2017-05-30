@@ -17,6 +17,7 @@ public interface MainContract {
 
     interface View extends BaseView {
 
+        void updateLockStatus();
     }
 
     interface Presenter extends BasePresenter {

@@ -3,7 +3,7 @@
 
     <style name="MyAlertDialog" parent="android:Theme.DeviceDefault.Light.Dialog.Alert">
         <item name="android:titleTextColor">@android:color/black</item>
-        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textColor">@color/colorAccent</item>
         <item name="android:colorAccent">@color/colorAccent</item>
         <item name="android:colorPrimary">@android:color/black</item>
     </style>

@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -26,22 +25,20 @@ import android.widget.Toast;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.learnice.base_library.base.BaseActivity;
+import com.learnice.sharesdemo.ui.security.MyConfirmPatternActivity;
+import com.learnice.sharesdemo.ui.security.MySetPatternActivity;
 import com.learnice.sharesdemo.widget.adapter.MViewPagerAdapter;
-import com.learnice.sharesdemo.ChangePassActivity;
-import com.learnice.sharesdemo.ConfirmPatternView;
+import com.learnice.sharesdemo.ui.changepass.Activity.ChangePassActivity;
 import com.learnice.sharesdemo.database.DbManager;
 import com.learnice.sharesdemo.ui.login.Activity.LoginActivity;
 import com.learnice.sharesdemo.R;
-import com.learnice.sharesdemo.SetPatternView;
 import com.learnice.sharesdemo.shareddata.AboutLogin;
 import com.learnice.sharesdemo.shareddata.AboutPatternLock;
 import com.learnice.sharesdemo.shareddata.AboutUser;
 import com.learnice.sharesdemo.ui.main.contract.MainContract;
 import com.learnice.sharesdemo.ui.main.presenter.MainPresenter;
-
 import butterknife.BindView;
 import butterknife.OnClick;
-
 import static com.learnice.sharesdemo.bean.StockType.HK;
 import static com.learnice.sharesdemo.bean.StockType.SH;
 import static com.learnice.sharesdemo.bean.StockType.SZ;
@@ -78,10 +75,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @BindView(R.id.overlay)
     View overlay;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public int getLayoutId() {
@@ -107,6 +100,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public void initPresenter() {
         mPresenter = new MainPresenter(this);
+        mPresenter.subscribe();
     }
 
 
@@ -161,12 +155,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 switch (item.getItemId()) {
                     case R.id.item1:
                         if (AboutPatternLock.readPatternBool(MainActivity.this)) {
-                            Intent intent = new Intent(MainActivity.this, ConfirmPatternView.class);
-                            intent.putExtra("have", "have");
-                            startActivityForResult(intent, 1);
+                            openActivity(MyConfirmPatternActivity.class);
                         } else if (!AboutPatternLock.readPatternBool(MainActivity.this)) {
-                            Intent intent = new Intent(MainActivity.this, SetPatternView.class);
-                            startActivityForResult(intent, 2);
+                            openActivity(MySetPatternActivity.class);
                         }
                         break;
                     case R.id.item2:
@@ -194,7 +185,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
                                     }
                                 }).show();
-
                         break;
                 }
                 return false;
@@ -336,25 +326,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case 1:
-                if (resultCode == RESULT_OK) {
-                    AboutPatternLock.setPatternBool(this, false);
-                    navigation.getMenu().getItem(0).setTitle("手势密码          关");
-                }
-                break;
-            case 2:
-                if (resultCode == RESULT_OK) {
-                    AboutPatternLock.setPatternBool(this, true);
-                    navigation.getMenu().getItem(0).setTitle("手势密码          开");
-                }
-                break;
-        }
-
-    }
-
     @OnClick(R.id.overlay)
     public void onClick() {
         floatActionButtonMenu.collapse();
@@ -366,6 +337,16 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             floatActionButtonMenu.collapse();
         } else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void updateLockStatus() {
+
+        if (AboutPatternLock.readPatternBool(this)) {
+            navigation.getMenu().getItem(0).setTitle("手势密码          开");
+        } else if (!AboutPatternLock.readPatternBool(this)) {
+            navigation.getMenu().getItem(0).setTitle("手势密码          关");
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo;
+package com.learnice.sharesdemo.ui.guide.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.learnice.sharesdemo.R;
+import com.learnice.sharesdemo.ui.security.MyConfirmPatternActivity;
 import com.learnice.sharesdemo.widget.adapter.HomeViewPagerAdapter;
 import com.learnice.sharesdemo.shareddata.AboutFirst;
 
@@ -80,7 +82,7 @@ public class GuideActivity extends AppCompatActivity {
 
     @OnClick(R.id.guide_login)
     public void onClick() {
-        startActivity(new Intent(this, ConfirmPatternView.class));
+        startActivity(new Intent(this, MyConfirmPatternActivity.class));
         finish();
         AboutFirst.firstSave(this);
     }

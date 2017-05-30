@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E8EAF6"
-    tools:context="com.learnice.sharesdemo.ChangePassActivity">
+    tools:context="com.learnice.sharesdemo.ui.changepass.Activity.ChangePassActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/change_pass_toolbar"
         android:layout_width="match_parent"

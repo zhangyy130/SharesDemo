@@ -58,14 +58,15 @@ public class Trend extends BaseFragment<TrendPresenter> implements TrendContract
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                adapter.openAutoLoadMore(false);
                 adapter.clearData();
                 mPresenter.initPage();
                 mPresenter.getStockList();
             }
         });
-        adapter = new TrendAdapter();
+        adapter = new TrendAdapter(mContext);
         homeRecyclerview.setLayoutManager(new LinearLayoutManager(mContext));
-        adapter.openAutoLoadMore(true);
+
         adapter.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
@@ -112,11 +113,13 @@ public class Trend extends BaseFragment<TrendPresenter> implements TrendContract
     public void getStockList(List<SHStockListBean> data) {
         if (swipeRefreshLayout.isRefreshing()) swipeRefreshLayout.setRefreshing(false);
         adapter.addData(data);
+        adapter.openAutoLoadMore(true);
     }
 
     @Override
     public void flushStockList() {
         adapter.clearData();
         mPresenter.getStockList();
+        adapter.openAutoLoadMore(false);
     }
 }

@@ -36,6 +36,10 @@ public interface SubscribeContract {
         void AddStockData(StandStockBean data);
 
         void LoadComplete();
+
+        void clearData();
+
+        void subscribeIsNull();
     }
 
     interface Presenter extends BasePresenter {

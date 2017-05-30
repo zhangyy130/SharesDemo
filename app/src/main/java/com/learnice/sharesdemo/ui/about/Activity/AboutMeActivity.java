@@ -1,6 +1,5 @@
-package com.learnice.sharesdemo;
+package com.learnice.sharesdemo.ui.about.Activity;
 
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +9,12 @@ import android.view.MenuItem;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
+import com.learnice.sharesdemo.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AboutMeActivity extends BaseActivity {
+
+public class AboutMeActivity extends AppCompatActivity {
 
     @BindView(R.id.about_me_toolbar)
     Toolbar aboutMeToolbar;

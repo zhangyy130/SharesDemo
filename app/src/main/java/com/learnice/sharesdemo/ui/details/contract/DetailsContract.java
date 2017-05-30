@@ -47,7 +47,7 @@ public interface DetailsContract {
 
         void setStockData(StandStockBean data);
 
-        void sendSayResule(String status);
+        void sendSayResult(String status);
 
         void getSaydata(List<tb_say> tb_says);
 
@@ -56,6 +56,8 @@ public interface DetailsContract {
         void addSubscribeSuccess();
 
         void DeleteSubscribeSuccess();
+
+        void sendSayResult(tb_say say);
     }
 
     interface Presenter extends BasePresenter {

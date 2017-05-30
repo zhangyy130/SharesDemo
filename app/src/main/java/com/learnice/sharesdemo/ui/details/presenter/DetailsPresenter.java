@@ -68,7 +68,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
 
     @Override
     public void sendSay(String content) {
-        tb_say say = new tb_say();
+        final tb_say say = new tb_say();
         say.setUserName(userName);
         say.setSharesType(stockType);
         say.setSharesNumber(stockSymbol);
@@ -78,7 +78,8 @@ public class DetailsPresenter implements DetailsContract.Presenter {
 
             @Override
             public void done(String status) {
-                mView.sendSayResule(status);
+                ToastUtils.showShortToast(status);
+                mView.sendSayResult(say);
             }
         });
     }
@@ -125,6 +126,8 @@ public class DetailsPresenter implements DetailsContract.Presenter {
                 public void done(Boolean aBoolean) {
                     if (aBoolean) {
                         mView.DeleteSubscribeSuccess();
+                        rxManager.post("subscribeUpdate", null);
+                        ToastUtils.showShortToast("删除成功");
                     } else {
                         ToastUtils.showShortToast("删除失败");
                     }
@@ -138,8 +141,10 @@ public class DetailsPresenter implements DetailsContract.Presenter {
 
                     if (aBoolean) {
                         mView.addSubscribeSuccess();
+                        rxManager.post("subscribeUpdate", null);
+                        ToastUtils.showShortToast("添加成功");
                     } else {
-                        ToastUtils.showShortToast("删除成功");
+                        ToastUtils.showShortToast("添加失败");
                     }
 
                 }
@@ -234,7 +239,6 @@ public class DetailsPresenter implements DetailsContract.Presenter {
 
                     @Override
                     public void onCompleted() {
-                        Log.d("------------", "------------");
                     }
 
                     @Override

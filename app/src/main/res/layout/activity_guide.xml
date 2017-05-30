@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0277BD"
-    tools:context="com.learnice.sharesdemo.GuideActivity">
+    tools:context="com.learnice.sharesdemo.ui.guide.Activity.GuideActivity">
 
     <android.support.v4.view.ViewPager
         android:layout_marginRight="64dp"

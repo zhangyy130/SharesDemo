@@ -1,4 +1,4 @@
-package com.learnice.sharesdemo;
+package com.learnice.sharesdemo.ui.changepass.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import com.learnice.sharesdemo.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

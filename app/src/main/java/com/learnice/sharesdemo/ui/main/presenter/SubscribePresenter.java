@@ -18,6 +18,7 @@ import java.util.List;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -40,7 +41,13 @@ public class SubscribePresenter implements SubscribeContract.Presenter {
 
     @Override
     public void subscribe() {
-
+        rxManager.on("subscribeUpdate", new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                mView.clearData();
+                getSubscribeData();
+            }
+        });
     }
 
     @Override
@@ -50,6 +57,7 @@ public class SubscribePresenter implements SubscribeContract.Presenter {
 
     @Override
     public void getSubscribeData() {
+        mView.subscribeIsNull();
         mModel.getSubscribeData(new ISubscribe() {
             @Override
             public void get(String type, String symbol) {

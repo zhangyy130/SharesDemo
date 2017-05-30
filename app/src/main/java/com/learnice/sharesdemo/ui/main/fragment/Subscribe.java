@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.learnice.base_library.base.BaseFragment;
 import com.learnice.base_library.base_adapter.OnItemClickListener;
+import com.learnice.base_library.base_adapter.OnLoadMoreListener;
 import com.learnice.sharesdemo.widget.adapter.SubscribeAdapter;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.bean.StandStockBean;
@@ -38,7 +39,7 @@ public class Subscribe extends BaseFragment<SubscribePresenter> implements Subsc
 
     @Override
     public void initView() {
-        adapter = new SubscribeAdapter();
+        adapter = new SubscribeAdapter(mContext);
         adapter.setmOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -51,6 +52,12 @@ public class Subscribe extends BaseFragment<SubscribePresenter> implements Subsc
                 Intent intent = new Intent(mContext, DetailsActivity.class);
                 intent.putExtra("bundle", b);
                 mContext.startActivity(intent);
+            }
+        });
+        adapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+
             }
         });
         subscribeRecyclerview.setLayoutManager(new LinearLayoutManager(mContext));
@@ -69,6 +76,7 @@ public class Subscribe extends BaseFragment<SubscribePresenter> implements Subsc
     @Override
     public void initPresenter() {
         mPresenter = new SubscribePresenter(this);
+        mPresenter.subscribe();
     }
 
     @Override
@@ -83,6 +91,16 @@ public class Subscribe extends BaseFragment<SubscribePresenter> implements Subsc
             subscribeSwipeRefreshLayuot.setRefreshing(false);
         }
 
+    }
+
+    @Override
+    public void clearData() {
+        adapter.clearData();
+    }
+
+    @Override
+    public void subscribeIsNull() {
+        noSubscribe.setVisibility(View.VISIBLE);
     }
 
 }

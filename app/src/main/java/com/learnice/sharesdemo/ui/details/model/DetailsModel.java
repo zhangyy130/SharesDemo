@@ -32,7 +32,7 @@ import rx.Observable;
 
 public class DetailsModel implements DetailsContract.Model {
 
-    public static final String OK = "成功";
+    public static final String OK = "发送成功";
     public static final String OCCUR_EXCEPTION = "发生异常";
 
     @Override
