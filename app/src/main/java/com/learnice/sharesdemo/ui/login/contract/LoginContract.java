@@ -15,6 +15,8 @@ public interface LoginContract {
     interface View extends BaseView {
 
         void loginSuccess();
+
+        void setGoneProgress();
     }
 
     interface Model extends BaseModel {

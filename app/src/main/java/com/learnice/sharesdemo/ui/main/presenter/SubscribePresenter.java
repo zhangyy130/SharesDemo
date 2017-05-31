@@ -194,6 +194,9 @@ public class SubscribePresenter implements SubscribeContract.Presenter {
             @Override
             public void done(Integer i) {
                 subscribeCount = i;
+                if (subscribeCount == 0){
+                    mView.LoadComplete();
+                }
             }
         });
     }

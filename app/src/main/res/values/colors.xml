@@ -12,4 +12,6 @@
     <color name="down">#2E7D32</color>
     <color name="fabcolor">#448AFF</color>
     <color name="fabsmallcolor">#03A9F4</color>
+    <color name="black">#000000</color>
+    <color name="submit_disable">#cecece</color>
 </resources>

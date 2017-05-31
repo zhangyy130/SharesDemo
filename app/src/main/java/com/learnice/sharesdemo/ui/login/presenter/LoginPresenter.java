@@ -1,6 +1,7 @@
 package com.learnice.sharesdemo.ui.login.presenter;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.learnice.base_library.baserx.RxManager;
 import com.learnice.sharesdemo.fi.IDO;
 import com.learnice.sharesdemo.fi.Idone;
 import com.learnice.sharesdemo.app.App;
@@ -17,11 +18,13 @@ public class LoginPresenter implements LoginContract.Presenter {
     private LoginContract.Model mModel;
     private LoginContract.View mView;
     private App app;
+    private RxManager rxManager;
 
     public LoginPresenter(LoginContract.View view) {
         this.mView = view;
         mModel = new LoginModel();
         app = App.getInstance();
+        rxManager = new RxManager();
     }
 
     @Override
@@ -51,11 +54,14 @@ public class LoginPresenter implements LoginContract.Presenter {
                         public void done(Boolean aBoolean) {
                             if (aBoolean) {
                                 ToastUtils.showShortToast("同步成功");
+                                rxManager.post("subscribeUpdate",null);
                             } else {
                                 ToastUtils.showShortToast("同步失败");
                             }
                         }
                     });
+                }else {
+                    mView.setGoneProgress();
                 }
                 ToastUtils.showShortToast(status);
             }

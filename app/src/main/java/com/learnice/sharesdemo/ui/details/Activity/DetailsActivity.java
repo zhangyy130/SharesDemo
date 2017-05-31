@@ -99,7 +99,7 @@ public class DetailsActivity extends BaseActivity<DetailsPresenter> implements D
         actionBar.setHomeAsUpIndicator(R.mipmap.abc_ic_ab_back_mtrl_am_alpha);
         actionBar.setTitle(bundle.getString("name") + "(" + bundle.getString("stock") + ")");
 
-        mPresenter.getStockData(bundle.getString("type"), bundle.getString("stock"), bundle.getString("name"));
+        mPresenter.getStockData(bundle.getString("type"), bundle.getString("stock").toLowerCase(), bundle.getString("name"));
 
         RxTextView.textChanges(meSayEditText).map(new Func1<CharSequence, Boolean>() {
             @Override

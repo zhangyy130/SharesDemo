@@ -1,8 +1,11 @@
 package com.learnice.sharesdemo.ui.register.Activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+
 import com.blankj.utilcode.util.ToastUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
@@ -10,6 +13,7 @@ import com.learnice.base_library.base.BaseActivity;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.ui.register.contract.RegisterContract;
 import com.learnice.sharesdemo.ui.register.presenter.RegisterPresenter;
+
 import butterknife.BindView;
 import rx.Observable;
 import rx.functions.Action1;
@@ -26,11 +30,9 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
     EditText registerEtPassword2;
     @BindView(R.id.main_btn_register)
     Button mainBtnRegister;
+    @BindView(R.id.progress_layout_register)
+    RelativeLayout progressLayoutRegister;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public int getLayoutId() {
@@ -65,8 +67,9 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
                         String pass2 = registerEtPassword2.getText().toString().trim();
 
                         if (chenkEquals(pass1, pass2)) {
-                            mPresenter.toRegister(name,pass1);
-                        }else {
+                            progressLayoutRegister.setVisibility(View.VISIBLE);
+                            mPresenter.toRegister(name, pass1);
+                        } else {
                             ToastUtils.showShortToast("输入的两次密码不一致请重新输入");
                         }
                     }
@@ -90,5 +93,10 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
     public void registerSuccess() {
         ToastUtils.showShortToast("注册成功请登录");
         finish();
+    }
+
+    @Override
+    public void setGoneProgress() {
+        progressLayoutRegister.setVisibility(View.GONE);
     }
 }

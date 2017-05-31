@@ -5,6 +5,7 @@ import android.support.v4.content.ContextCompat;
 
 import com.learnice.base_library.base_adapter.BaseAdapter;
 import com.learnice.base_library.base_adapter.BaseViewHolder;
+import com.learnice.base_library.utils.HandleNumber;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.bean.SHStockListBean;
 
@@ -42,17 +43,17 @@ public class TrendAdapter extends BaseAdapter<SHStockListBean> {
 
         if (changePercent >= 0) {
             String changePercentReal = "+" + String.valueOf(valueNew) + "%";
-            holder.setText(R.id.trend_recycler_item_nowPri, data.getTrade())
+            holder.setText(R.id.trend_recycler_item_nowPri, String.valueOf(HandleNumber.handleDoubleTwo(Double.valueOf(data.getTrade()), 2)))
                     .setTextColor(R.id.trend_recycler_item_nowPri, ContextCompat.getColor(mContext, R.color.up))
-                    .setText(R.id.trend_recycler_item_uppic, data.getPricechange())
+                    .setText(R.id.trend_recycler_item_uppic, String.valueOf(HandleNumber.handleDoubleTwo(Double.valueOf(data.getPricechange()), 2)))
                     .setTextColor(R.id.trend_recycler_item_uppic, ContextCompat.getColor(mContext, R.color.up))
                     .setText(R.id.trend_recycler_item_limit, changePercentReal)
                     .setBackgroundColor(R.id.trend_recycler_item_limit, ContextCompat.getColor(mContext, R.color.up));
         } else {
             String changePercentReal = String.valueOf(valueNew) + "%";
-            holder.setText(R.id.trend_recycler_item_nowPri, data.getTrade())
+            holder.setText(R.id.trend_recycler_item_nowPri, String.valueOf(HandleNumber.handleDoubleTwo(Double.valueOf(data.getTrade()), 2)))
                     .setTextColor(R.id.trend_recycler_item_nowPri, ContextCompat.getColor(mContext, R.color.down))
-                    .setText(R.id.trend_recycler_item_uppic, data.getPricechange())
+                    .setText(R.id.trend_recycler_item_uppic, String.valueOf(HandleNumber.handleDoubleTwo(Double.valueOf(data.getPricechange()), 2)))
                     .setTextColor(R.id.trend_recycler_item_uppic, ContextCompat.getColor(mContext, R.color.down))
                     .setText(R.id.trend_recycler_item_limit, changePercentReal)
                     .setBackgroundColor(R.id.trend_recycler_item_limit, ContextCompat.getColor(mContext, R.color.down));

@@ -34,27 +34,23 @@ public class NewsActivity extends AppCompatActivity {
 
     private void initView() {
         url = getIntent().getStringExtra("newsURL");
-        boolean supportJavascripe=getIntent().getBooleanExtra("supportJavascripe",false);
+        boolean supportJs = getIntent().getBooleanExtra("supportJs", false);
         setSupportActionBar(toolbarNews);
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.mipmap.abc_ic_ab_back_mtrl_am_alpha);
         actionBar.setTitle("");
         actionBar.setDisplayHomeAsUpEnabled(true);
-        if (supportJavascripe){
-            wvNews.getSettings().setJavaScriptEnabled(true);
-        }
-        else {
-            //不支持javascript 减少广告数量
-            wvNews.getSettings().setJavaScriptEnabled(false);
-        }
-        wvNews.setWebViewClient(new WebViewClient(){
+
+        wvNews.getSettings().setJavaScriptEnabled(supportJs);
+
+        wvNews.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 wvNews.loadUrl(url);
                 return true;
             }
         });
-        WebChromeClient chromeClient=new WebChromeClient(){
+        WebChromeClient chromeClient = new WebChromeClient() {
             @Override
             public void onReceivedTitle(WebView view, String title) {
                 super.onReceivedTitle(view, title);
@@ -71,7 +67,7 @@ public class NewsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 break;

@@ -22,9 +22,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.learnice.base_library.base.BaseActivity;
+import com.learnice.sharesdemo.ui.about.Activity.AboutMeActivity;
 import com.learnice.sharesdemo.ui.security.MyConfirmPatternActivity;
 import com.learnice.sharesdemo.ui.security.MySetPatternActivity;
 import com.learnice.sharesdemo.widget.adapter.MViewPagerAdapter;
@@ -37,8 +39,10 @@ import com.learnice.sharesdemo.shareddata.AboutPatternLock;
 import com.learnice.sharesdemo.shareddata.AboutUser;
 import com.learnice.sharesdemo.ui.main.contract.MainContract;
 import com.learnice.sharesdemo.ui.main.presenter.MainPresenter;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+
 import static com.learnice.sharesdemo.bean.StockType.HK;
 import static com.learnice.sharesdemo.bean.StockType.SH;
 import static com.learnice.sharesdemo.bean.StockType.SZ;
@@ -164,6 +168,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         startActivity(new Intent(MainActivity.this, ChangePassActivity.class));
                         break;
                     case R.id.item6:
+                        openActivity(AboutMeActivity.class);
                         break;
                     case R.id.item7:
                         new AlertDialog.Builder(MainActivity.this)

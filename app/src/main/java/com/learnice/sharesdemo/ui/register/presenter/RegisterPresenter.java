@@ -38,6 +38,7 @@ public class RegisterPresenter implements RegisterContract.Presenter {
                 if (status.equals(RegisterModel.OK)){
                     mView.registerSuccess();
                 }else {
+                    mView.setGoneProgress();
                     ToastUtils.showShortToast(status);
                 }
             }

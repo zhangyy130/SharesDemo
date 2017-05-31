@@ -2,18 +2,22 @@ package com.learnice.sharesdemo.ui.login.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.learnice.base_library.base.BaseActivity;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.app.App;
-import com.learnice.sharesdemo.ui.register.Activity.RegisterActivity;
 import com.learnice.sharesdemo.ui.login.contract.LoginContract;
 import com.learnice.sharesdemo.ui.login.presenter.LoginPresenter;
 import com.learnice.sharesdemo.ui.main.activity.MainActivity;
+import com.learnice.sharesdemo.ui.register.Activity.RegisterActivity;
+
 import butterknife.BindView;
 import rx.Observable;
 import rx.functions.Action1;
@@ -31,6 +35,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     Button mainBtnLogin;
     @BindView(R.id.login_register)
     TextView loginRegister;
+    @BindView(R.id.progress_layout)
+    RelativeLayout progressLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +74,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 .subscribe(new Action1<Void>() {
                     @Override
                     public void call(Void aVoid) {
+                        progressLayout.setVisibility(View.VISIBLE);
                         String name = etUsername.getText().toString().trim();
                         String pass = etPassword.getText().toString().trim();
                         mPresenter.toLogin(name, pass);
@@ -91,6 +98,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     public void loginSuccess() {
         openActivity(MainActivity.class);
         finish();
+    }
+
+    @Override
+    public void setGoneProgress() {
+        progressLayout.setVisibility(View.GONE);
     }
 }
 
