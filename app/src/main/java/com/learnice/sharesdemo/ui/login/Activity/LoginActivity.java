@@ -13,15 +13,19 @@ import com.jakewharton.rxbinding.widget.RxTextView;
 import com.learnice.base_library.base.BaseActivity;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.app.App;
+import com.learnice.sharesdemo.shareddata.AboutPatternLock;
 import com.learnice.sharesdemo.ui.login.contract.LoginContract;
 import com.learnice.sharesdemo.ui.login.presenter.LoginPresenter;
 import com.learnice.sharesdemo.ui.main.activity.MainActivity;
 import com.learnice.sharesdemo.ui.register.Activity.RegisterActivity;
+import com.learnice.sharesdemo.ui.security.MyConfirmPatternActivity;
 
 import butterknife.BindView;
 import rx.Observable;
 import rx.functions.Action1;
 import rx.functions.Func2;
+
+import static com.blankj.utilcode.util.LogUtils.A;
 
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
@@ -41,8 +45,13 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (App.getInstance().readLoginSuccess()) {
+        if (App.getInstance().readLoginSuccess() && !AboutPatternLock.readPatternBool(this)) {
             startActivity(new Intent(this, MainActivity.class));
+            finish();
+        } else if (App.getInstance().readLoginSuccess() && AboutPatternLock.readPatternBool(this)) {
+            Intent intent = new Intent(this,MyConfirmPatternActivity.class);
+            intent.putExtra("isStart",true);
+            startActivity(intent);
             finish();
         }
     }
