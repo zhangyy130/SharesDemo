@@ -1,5 +1,6 @@
 package com.learnice.sharesdemo.ui.register.model;
 
+import com.learnice.base_library.utils.MD5Secret;
 import com.learnice.sharesdemo.fi.Idone;
 import com.learnice.sharesdemo.bean.tb_user;
 import com.learnice.sharesdemo.ui.register.contract.RegisterContract;
@@ -22,7 +23,7 @@ public class RegisterModel implements RegisterContract.Model {
     public void toRegister(String name, String pass1, final Idone idone) {
         tb_user user = new tb_user();
         user.setName(name);
-        user.setPass(pass1);
+        user.setPass(MD5Secret.getMD5String(pass1));
         user.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {

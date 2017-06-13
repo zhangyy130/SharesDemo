@@ -1,5 +1,6 @@
 package com.learnice.sharesdemo.ui.login.model;
 
+import com.learnice.base_library.utils.MD5Secret;
 import com.learnice.sharesdemo.fi.IDO;
 import com.learnice.sharesdemo.fi.Idone;
 import com.learnice.sharesdemo.bean.Shares;
@@ -43,7 +44,7 @@ public class LoginModel implements LoginContract.Model {
                     else {
                         tb_user user = list.get(0);
                         //验证密码
-                        if (user.getPass().equals(pass)) {
+                        if (user.getPass().equals(MD5Secret.getMD5String(pass))) {
                             idone.done(OK);
                         } else {
                             idone.done(PASS_ERROR);
