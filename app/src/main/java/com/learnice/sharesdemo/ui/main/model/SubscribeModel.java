@@ -36,6 +36,7 @@ public class SubscribeModel implements SubscribeContract.Model {
                 i.get(type, name);
             }
         }
+        cursor.close();
     }
 
     @Override

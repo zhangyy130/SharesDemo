@@ -20,25 +20,35 @@ public class DbServices {
         ContentValues contentValues = new ContentValues();
         contentValues.put(SharesDataBase.SHARES_TYPE, shares.getSharesType());
         contentValues.put(SharesDataBase.SHARES_NAME, shares.getSharesName());
-        return dbManager.add(contentValues);
+        long num = dbManager.add(contentValues);
+        return num;
     }
 
+    /**
+     * 查询所有数据
+     * @return
+     */
     public Cursor select() {
-        return dbManager.select();
+        Cursor cursor = dbManager.select();
+        return cursor;
     }
 
     public Cursor selectOne(Shares shares) {
         String selection=SharesDataBase.SHARES_TYPE+"=? and "+SharesDataBase.SHARES_NAME+"=?";
         String[] selectionArgs=new String[]{shares.getSharesType(),shares.getSharesName()};
-        return dbManager.selectOne(selection,selectionArgs);
+        Cursor cursor = dbManager.selectOne(selection,selectionArgs);
+        return cursor;
     }
 
     public int delete(Shares shares) {
         String whereClause = SharesDataBase.SHARES_TYPE + "=? and " + SharesDataBase.SHARES_NAME + "=?";
         String[] whereArgs = new String[]{shares.getSharesType(), shares.getSharesName()};
-        return dbManager.delete(whereClause, whereArgs);
+        int num = dbManager.delete(whereClause, whereArgs);
+        return num;
     }
     public int clearData(){
-        return dbManager.clearData();
+        int num = dbManager.clearData();
+        return num;
     }
+
 }

@@ -65,11 +65,13 @@
         <!--设置密码-->
         <activity
             android:name=".ui.security.MySetPatternActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/passwd_ui"/>
         <!--验证密码-->
         <activity
             android:name=".ui.security.MyConfirmPatternActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/passwd_ui"/>
         <!--引导-->
         <activity
             android:name=".ui.guide.Activity.GuideActivity"

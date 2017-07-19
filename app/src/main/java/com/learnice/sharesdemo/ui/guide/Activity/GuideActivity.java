@@ -25,7 +25,7 @@ public class GuideActivity extends AppCompatActivity {
     ViewPager guideViewPager;
     @BindView(R.id.guide_circle)
     CircleIndicator guideCircle;
-    int[] ints = new int[]{R.drawable.say_view, R.drawable.trend_view, R.drawable.long_view};
+    int[] ints = new int[]{};
     @BindView(R.id.guide_login)
     TextView guideLogin;
     @BindView(R.id.guide_tip_text)

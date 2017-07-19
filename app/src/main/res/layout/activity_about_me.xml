@@ -10,7 +10,8 @@
         android:layout_height="48dp"
         android:background="@drawable/about_click_effect"
         android:scaleType="center"
-        android:src="@drawable/ic_close_black_24dp" />
+        android:src="@drawable/ic_close_black_24dp"
+         />
 
     <ImageView
         android:id="@+id/logo"

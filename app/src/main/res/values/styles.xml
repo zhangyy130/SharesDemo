@@ -9,6 +9,7 @@
         <item name="android:windowBackground">@color/window_background</item>
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <style name="costumActionBar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
@@ -41,5 +42,9 @@
     <style name="menu_labels_style">
         <item name="android:background">@drawable/fab_label_bg</item>
         <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="passwd_ui" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">@android:color/black</item>
     </style>
 </resources>

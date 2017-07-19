@@ -163,6 +163,10 @@ public class SubscribePresenter implements SubscribeContract.Presenter {
                                 });
                         break;
                 }
+
+                if (observable == null) return;
+
+
                 rxManager.add(observable
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
