@@ -2,6 +2,7 @@ package com.learnice.sharesdemo.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SyncContext;
 import android.database.Cursor;
 
 import com.learnice.sharesdemo.bean.Shares;
@@ -10,10 +11,20 @@ import com.learnice.sharesdemo.bean.Shares;
  * Created by Xuebin He on 2016/6/19.
  */
 public class DbServices {
+    private static DbServices mInstance;
     DbManager dbManager;
 
     public DbServices(Context context) {
         dbManager = new DbManager(context);
+    }
+
+    public static DbServices getInstance(Context context) {
+        synchronized (DbServices.class) {
+            if (mInstance == null) {
+                mInstance = new DbServices(context);
+            }
+            return mInstance;
+        }
     }
 
     public long add(Shares shares) {
@@ -26,6 +37,7 @@ public class DbServices {
 
     /**
      * 查询所有数据
+     *
      * @return
      */
     public Cursor select() {
@@ -34,9 +46,9 @@ public class DbServices {
     }
 
     public Cursor selectOne(Shares shares) {
-        String selection=SharesDataBase.SHARES_TYPE+"=? and "+SharesDataBase.SHARES_NAME+"=?";
-        String[] selectionArgs=new String[]{shares.getSharesType(),shares.getSharesName()};
-        Cursor cursor = dbManager.selectOne(selection,selectionArgs);
+        String selection = SharesDataBase.SHARES_TYPE + "=? and " + SharesDataBase.SHARES_NAME + "=?";
+        String[] selectionArgs = new String[]{shares.getSharesType(), shares.getSharesName()};
+        Cursor cursor = dbManager.selectOne(selection, selectionArgs);
         return cursor;
     }
 
@@ -46,9 +58,14 @@ public class DbServices {
         int num = dbManager.delete(whereClause, whereArgs);
         return num;
     }
-    public int clearData(){
+
+    public int clearData() {
         int num = dbManager.clearData();
         return num;
+    }
+
+    public void closeDB() {
+        dbManager.closeDB();
     }
 
 }

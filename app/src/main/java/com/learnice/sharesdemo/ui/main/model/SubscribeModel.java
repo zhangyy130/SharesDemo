@@ -2,6 +2,7 @@ package com.learnice.sharesdemo.ui.main.model;
 
 import android.database.Cursor;
 
+import com.learnice.base_library.baserx.RxManager;
 import com.learnice.sharesdemo.database.SharesDataBase;
 import com.learnice.sharesdemo.fi.IDO;
 import com.learnice.sharesdemo.fi.ISubscribe;
@@ -37,6 +38,7 @@ public class SubscribeModel implements SubscribeContract.Model {
             }
         }
         cursor.close();
+        new RxManager().post("dbReadOK",true);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class App extends BaseApplication {
         instance = this;
         Bmob.initialize(this, "46af27f1da81ec401f1b58fae9999642");
         Utils.init(this);
-        dbServices = new DbServices(this);
+        dbServices = DbServices.getInstance(this);
     }
 
     /**
@@ -65,5 +65,9 @@ public class App extends BaseApplication {
         editor.commit();
     }
 
-
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        dbServices.closeDB();
+    }
 }

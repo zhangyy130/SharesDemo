@@ -2,6 +2,7 @@ package com.learnice.sharesdemo.ui.login.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.learnice.base_library.base.BaseActivity;
+import com.learnice.base_library.utils.LogUtil;
 import com.learnice.sharesdemo.R;
 import com.learnice.sharesdemo.app.App;
 import com.learnice.sharesdemo.shareddata.AboutPatternLock;

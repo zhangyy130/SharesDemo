@@ -60,4 +60,8 @@ public class DbManager {
     public int clearData(){
         return database.delete(SharesDataBase.TABLE_NAME,null,null);
     }
+
+    public void closeDB(){
+        sharesDataBase.close();
+    }
 }
