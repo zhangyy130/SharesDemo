@@ -46,16 +46,16 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         if (App.getInstance().readLoginSuccess() && !AboutPatternLock.readPatternBool(this)) {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         } else if (App.getInstance().readLoginSuccess() && AboutPatternLock.readPatternBool(this)) {
-            Intent intent = new Intent(this,MyConfirmPatternActivity.class);
-            intent.putExtra("isStart",true);
+            Intent intent = new Intent(this, MyConfirmPatternActivity.class);
+            intent.putExtra("isStart", true);
             startActivity(intent);
             finish();
         }
+        super.onCreate(savedInstanceState);
     }
 
     @Override

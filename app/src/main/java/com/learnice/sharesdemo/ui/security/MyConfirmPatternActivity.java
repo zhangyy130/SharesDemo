@@ -47,6 +47,8 @@ public class MyConfirmPatternActivity extends ConfirmPatternActivity {
         boolean isTrue = TextUtils.equals(PatternUtils.patternToSha1String(pattern), sha1);
         if (isTrue && !mIsStart) {
             AboutPatternLock.setPatternBool(this, false);
+        } else if (isTrue && mIsStart) {
+            startActivity(new Intent(this, MainActivity.class));
         }
         return isTrue;
     }
@@ -60,9 +62,7 @@ public class MyConfirmPatternActivity extends ConfirmPatternActivity {
     @Override
     public void finish() {
         super.finish();
-        if (mIsStart) {
-            startActivity(new Intent(this, MainActivity.class));
-        } else {
+        if (!mIsStart) {
             rxManager.post("updateLockStatus", null);
         }
     }

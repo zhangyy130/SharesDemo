@@ -9,7 +9,7 @@ android {
         applicationId "com.learnice.sharesdemo"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 23
+        versionCode 24
         versionName "2.0.1"
         multiDexEnabled true
     }

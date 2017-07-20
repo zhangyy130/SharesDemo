@@ -121,5 +121,6 @@ public class Trend extends BaseFragment<TrendPresenter> implements TrendContract
         adapter.clearData();
         mPresenter.getStockList();
         adapter.openAutoLoadMore(false);
+        swipeRefreshLayout.setRefreshing(true);
     }
 }

@@ -1,5 +1,6 @@
 package com.learnice.sharesdemo.ui.main.presenter;
 
+import android.os.Handler;
 import android.util.Log;
 
 import com.learnice.base_library.baserx.RxManager;
@@ -14,6 +15,7 @@ import com.learnice.sharesdemo.ui.main.model.TrendModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -180,6 +182,7 @@ public class TrendPresenter implements TrendContract.Presenter {
                 break;
         }
         rxManager.add(observable
+                .delay(500, TimeUnit.MILLISECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<StockListResponse<SHStockListBean>>() {
